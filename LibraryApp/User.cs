@@ -9,18 +9,23 @@ namespace LibraryApp
     class User
     {
         private string email;
-        private string lastName;
         private string firstName;
+        private string lastName;
         private bool powerUser;
+        private book rentedBook;
+        private float totalFees;
 
-        public User(string email, string lastName, string firstName, bool powerUser)
+        public User(string email, string firstName, string lastName, bool powerUser, book rentedBook, float totalFees)
         {
             this.email = email;
-            this.lastName = lastName;
             this.firstName = firstName;
+            this.lastName = lastName;
             this.powerUser = powerUser;
+            this.rentedBook = rentedBook;
+            this.totalFees = totalFees;
         }
 
+        #region Properties
         public string Email
         {
             get
@@ -33,7 +38,6 @@ namespace LibraryApp
                 email = value;
             }
         }
-
         public string LastName
         {
             get
@@ -42,7 +46,6 @@ namespace LibraryApp
             }
 
         }
-
         public string FirstName
         {
             get
@@ -51,7 +54,6 @@ namespace LibraryApp
             }
 
         }
-
         public bool PowerUser
         {
             get
@@ -60,5 +62,31 @@ namespace LibraryApp
             }
 
         }
+        public book RentedBook
+        {
+            get
+            {
+                return rentedBook;
+            }
+
+            set
+            {
+                rentedBook = value;
+            }
+        }
+        public float TotalFees
+        {
+            get
+            {
+                return totalFees;
+            }
+
+            set
+            {
+                totalFees = value;
+            }
+        }
+        #endregion
+
     }
 }
