@@ -1,12 +1,12 @@
-﻿Fiction,Ulysses,James,Joyce,false,11/11/2016,0.0,0.0
-Fiction,American Psycho,Brett,Easton-Ellis,false,11/11/2016,0.0,0.0
-Fiction,Vineland,Thomas,Pynchon,false,11/11/2016,0.0,0.0
-Fiction,Life: A User's Manual,Georges,Perec,false,11/11/2016,0.0,0.0
-Fiction,A Long Project,Will,Spencer,false,11/11/2016,0.0,0.0
-Fiction,Tedious,Jay,Kelley,false,11/11/2016,0.0,0.0
-Fiction,Fifty Shades of Jay,Jay,Watt,true,11/11/2016,0.0,0.0
-Fiction,Ride Or Die,Dee,Emex,true,11/11/2016,0.0,0.0
-Nonfiction,Boughetto: An Autobiography,Jay,Watt,false,11/11/2016,0.0,0.0
+﻿Fiction,Ulysses,James,Joyce,false,11/11/2016,0,0.0,0.0
+Fiction,American Psycho,Brett,Easton-Ellis,false,11/11/2016,0,0.0,0.0
+Fiction,Vineland,Thomas,Pynchon,false,11/11/2016,0,0.0,0.0
+Fiction,Life: A User's Manual,Georges,Perec,false,11/11/2016,0,0.0,0.0
+Fiction,A Long Project,Will,Spencer,false,11/11/2016,0,0.0,0.0
+Fiction,Tedious,Jay,Kelley,false,11/11/2016,0,0.0,0.0
+Fiction,Fifty Shades of Jay,Jay,Watt,true,11/11/2016,0,0.0,0.0
+Fiction,Ride Or Die,Dee,Emex,true,11/11/2016,0,0.0,0.0
+Nonfiction,Boughetto: An Autobiography,Jay,Watt,false,11/11/2016,0,0.0,0.0
 Nonfiction,My Life,Jesus,Christ,false,11/11/2016,0.0,0.0
 Nonfiction,It Is Like So Easy,Doctor,Kamel,true,11/11/2016,0.0,0.0
 Nonfiction,Just Google It,Doctor,Kamel,false,11/11/2016,0.0,0.0
@@ -92,4 +92,4 @@ Reference,Codein and Commas: A how to guide,Future,Rapper,false,11/11/2016,0.0,0
 Reference,MLA Writing Guide,Important,Writer,true,11/11/2016,0.0,0.0
 Reference,Business Law,Important,Lawyer,false,11/11/2016,0.0,0.0
 Reference,Gardening A to Z,Saresa,Smith,true,11/11/2016,0.0,0.0
-Reference,How to be good at Everything,James,Kelly,false,11/11/2016,0.0,0.0
+Reference,How to be good at Everything,James,Kelly,false,11/11/2016,0,0.0,0.0

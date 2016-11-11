@@ -14,11 +14,12 @@ namespace LibraryApp
         private string authorLast;
         private string category;
         private DateTime dueDate;
+        private int daysOverdue;
         private float bookValue;
         private float currentLateFee;
         
 
-        public book(string category, string title, string authorFirst, string authorLast, bool status, DateTime dueDate, float bookValue, float currentLateFee)
+        public book(string category, string title, string authorFirst, string authorLast, bool status, DateTime dueDate, int daysOverdue, float bookValue, float currentLateFee)
         {
             this.title = title;
             this.status = status;
@@ -26,6 +27,7 @@ namespace LibraryApp
             this.authorLast = authorLast;
             this.category = category;
             this.dueDate = dueDate;
+            this.daysOverdue = DaysOverdue;
             this.bookValue = bookValue;
             this.currentLateFee = currentLateFee;
         }
@@ -108,6 +110,11 @@ namespace LibraryApp
             }
         }
 
+        public int DaysOverdue
+        {
+            get { return daysOverdue; }
+            set { daysOverdue = value; }
+        }
         public float BookValue
         {
             get
@@ -134,10 +141,12 @@ namespace LibraryApp
             }
 
         }
+
+      
         public override string ToString()
         {
-            return Category + ", " + Title + ", " + AuthorFirst + ", " + AuthorLast + ", " + ", " + Status + ", " +
-                   DueDate + ", " + BookValue + ", " + CurrentLateFee;
+            return Category + ", " + Title + ", " + AuthorFirst + ", " + AuthorLast + ", " + Status + ", " +
+                   DueDate + ", " + DaysOverdue + ", "+ BookValue + ", " + CurrentLateFee;
         }
 
     }
