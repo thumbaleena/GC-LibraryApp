@@ -16,6 +16,7 @@ namespace LibraryApp
         private DateTime dueDate;
         private float bookValue;
         private float currentLateFee;
+        
 
         public book(string category, string title, string authorFirst, string authorLast, bool status, DateTime dueDate, float bookValue, float currentLateFee)
         {
