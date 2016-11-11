@@ -15,6 +15,9 @@ namespace LibraryApp
             string bookFile = "../../bookList.txt";
             StreamReader bookReader = new StreamReader(bookFile);
             string bookData = bookReader.ReadToEnd().TrimEnd();
+            int menuChoice = 1;
+            string input;
+            List<book> results = new List<book>();
             var bookRecords = bookData.Split('\n');
            foreach (var record in bookRecords)
             {
@@ -23,14 +26,43 @@ namespace LibraryApp
                 Library.Add(new book(rc[0],rc[1],rc[2],rc[3],bool.Parse(rc[4]),DateTime.Parse(rc[5]),int.Parse(rc[6]),float.Parse(rc[7]),float.Parse(rc[8])));
             }
             bookReader.Close();
-            for (int i = 0; i < Library.Count; i++)
+            Console.WriteLine("Please make a menu selection to search by:");
+            Console.WriteLine("1. Title");
+            Console.WriteLine("2. Category");
+            Console.WriteLine();
+            menuChoice = int.Parse(Console.ReadLine());
+
+            switch (menuChoice)
             {
-                Console.WriteLine(Library[i]);
+                case 1:
+                Console.Write("Search titles for: ");
+                input = Console.ReadLine();
+                results = Library.FindAll(delegate(book bk) { return bk.Title.Contains(input); });
+                for (int i = 0; i < results.Count; i++)
+                {
+                    Console.WriteLine(results[i]);
+                }
+                    break;
+
+                case 2:
+                Console.Write("Search categories for: ");
+                input = Console.ReadLine();
+                results = Library.FindAll(delegate(book bk) { return bk.Category.Contains(input); });
+                for (int i = 0; i < results.Count; i++)
+                {
+                    Console.WriteLine(results[i]);
+                }
+                    break;
+
+                default:
+                    Console.Write("Invalid input, please try again:  ");
+                    menuChoice = int.Parse(Console.ReadLine());
+                    break;
             }
-            // calculate overdue fees
-
-
         }
     }
 }
-
+/*            for (int i = 0; i < Library.Count; i++)
+            {
+                Console.WriteLine(Library[i]);
+            }*/

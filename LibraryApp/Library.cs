@@ -13,7 +13,7 @@ namespace LibraryApp
         private TimeSpan defaultCheckoutTime;
         private float defaultFee;
         private float overDueFeeByDay;
-
+        public static Library TheLibrary;
         public Library(string address, string nameOfLibrary, TimeSpan defaultCheckoutTime, float defaultFee, float overDueFeeByDay)
         {
             this.address = address;

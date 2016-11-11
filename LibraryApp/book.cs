@@ -142,7 +142,23 @@ namespace LibraryApp
 
         }
 
-      
+//only use this in the Check Out method
+        public DateTime SetDueDate()
+        {            
+            return DateTime.Today.AddDays(Library.TheLibrary.DefaultCheckoutTime.TotalDays);
+        }
+        public int CalculateDaysOverdue()
+        {
+            TimeSpan ts;
+            ts = DateTime.Today - DueDate;
+            return ts.Days;
+        }
+
+        public float CalculateOverdueFees()
+        {
+            currentLateFee = CalculateDaysOverdue()*Library.TheLibrary.DefaultFee;
+            return currentLateFee;
+        }
         public override string ToString()
         {
             return Category + ", " + Title + ", " + AuthorFirst + ", " + AuthorLast + ", " + Status + ", " +
