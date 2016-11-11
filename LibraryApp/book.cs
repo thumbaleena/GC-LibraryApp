@@ -131,6 +131,13 @@ namespace LibraryApp
             {
                 currentLateFee = value;
             }
+
         }
+        public override string ToString()
+        {
+            return Category + ", " + Title + ", " + AuthorFirst + ", " + AuthorLast + ", " + ", " + Status + ", " +
+                   DueDate + ", " + BookValue + ", " + CurrentLateFee;
+        }
+
     }
 }
