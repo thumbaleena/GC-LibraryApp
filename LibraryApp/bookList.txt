@@ -7,7 +7,7 @@ Fiction,Tedious,Jay,Kelley,false,11/11/2016,0.0,0.0
 Fiction,Fifty Shades of Jay,Jay,Watt,true,11/11/2016,0.0,0.0
 Fiction,Ride Or Die,Dee,Emex,true,11/11/2016,0.0,0.0
 Nonfiction,Boughetto: An Autobiography,Jay,Watt,false,11/11/2016,0.0,0.0
-Nonfiction,My Life,Jesus,Christ,false,11/11/2016,0.0,0.0
+Nonfiction,My Life,Jesus,Christ,false,11/25/2016,0.0,0.0
 Nonfiction,It Is Like So Easy,Doctor,Kamel,true,11/11/2016,0.0,0.0
 Nonfiction,Just Google It,Doctor,Kamel,false,11/11/2016,0.0,0.0
 Nonfiction,Started From The Bottom,Greg,Allday,false,11/11/2016,0.0,0.0
