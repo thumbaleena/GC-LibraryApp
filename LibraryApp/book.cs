@@ -17,7 +17,7 @@ namespace LibraryApp
         private float bookValue;
         private float currentLateFee;
 
-        public book(string title, bool status, string authorFirst, string authorLast, string category, DateTime dueDate, float bookValue, float currentLateFee)
+        public book(string category, string title, string authorFirst, string authorLast, bool status, DateTime dueDate, float bookValue, float currentLateFee)
         {
             this.title = title;
             this.status = status;
