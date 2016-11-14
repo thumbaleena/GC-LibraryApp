@@ -11,7 +11,10 @@ namespace LibraryApp
     {
         static void Main(string[] args)
         {
-            List<book> Library = new List<book>();
+            new Library("YadaAddress", "THELIBRARY", new TimeSpan(14, 0, 0, 0), .50f, .10f); //Creating a new Library to work with.. The Library will be stored in "Library.TheLibrary"
+
+            //Library = new List<book>();
+
             string bookFile = "../../bookList.txt";
             StreamReader bookReader = new StreamReader(bookFile);
             string bookData = bookReader.ReadToEnd().TrimEnd();
@@ -36,11 +39,20 @@ namespace LibraryApp
                     {
                         var rc = record.Split(',');
 
-                        Library.Add(new book(rc[0], rc[1], rc[2], rc[3], bool.Parse(rc[4]), DateTime.Parse(rc[5]),
+                        Library.TheLibrary.AllBooks.Add(new book(rc[0], rc[1], rc[2], rc[3], bool.Parse(rc[4]), DateTime.Parse(rc[5]),
                             int.Parse(rc[6]), float.Parse(rc[7]), float.Parse(rc[8])));
+
+                    }
+                    foreach (book bk in Library.TheLibrary.AllBooks)
+                    {
+                        Console.WriteLine(bk.ToString());
                     }
                     break;
-           //     case 2:
+                //     case 2:
+                
+                //added new exception so we don't mistake unwritten code for buggy code.
+                default:
+                    throw new NotImplementedException();
 
             }
 
@@ -60,7 +72,7 @@ namespace LibraryApp
                 case 1:
                     Console.Write("Search titles for: ");
                     input = Console.ReadLine();
-                    results = Library.FindAll(delegate (book bk) { return bk.Title.Contains(input); });
+                    results = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.Title.Contains(input); });
                     for (int i = 0; i < results.Count; i++)
                     {
                         Console.WriteLine(results[i]);
@@ -70,7 +82,7 @@ namespace LibraryApp
                 case 2:
                     Console.Write("Search categories for: ");
                     input = Console.ReadLine();
-                    results = Library.FindAll(delegate (book bk) { return bk.Category.Contains(input); });
+                    results = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.Category.Contains(input); });
                     for (int i = 0; i < results.Count; i++)
                     {
                         Console.WriteLine(results[i]);
@@ -80,7 +92,7 @@ namespace LibraryApp
                 case 3:
                     Console.Write("Search author last names for: ");
                     input = Console.ReadLine();
-                    results = Library.FindAll(delegate (book bk) { return bk.AuthorLast.Contains(input); });
+                    results = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.AuthorLast.Contains(input); });
                     for (int i = 0; i < results.Count; i++)
                     {
                         Console.WriteLine(results[i]);
@@ -90,7 +102,7 @@ namespace LibraryApp
                 case 4:
                     Console.Write("Search author first names for: ");
                     input = Console.ReadLine();
-                    results = Library.FindAll(delegate (book bk) { return bk.AuthorFirst.Contains(input); });
+                    results = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.AuthorFirst.Contains(input); });
                     for (int i = 0; i < results.Count; i++)
                     {
                         Console.WriteLine(results[i]);
