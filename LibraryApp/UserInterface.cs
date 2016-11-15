@@ -8,20 +8,136 @@ namespace LibraryApp
 {
     public static class UserInterface
     {
+        static string input;
+        static int menuChoice;
         static string Welcome_Header = "Welcome to the library application for " + "";
 
-        
+        public static void RunGUI()
+        {
+            //Todo: Start at welcome screen and progress to main menu.
+            MainMenu();
+        }
 
-        
-        public static void ScreenWelcome()
+
+        //Todo: add options for other menus:
+        //Check In Book
+        //Check Out Book
+        //Add Book to Library
+        //Super user Remove Book from Library
+        //Later: Pay Fee
+        public static void MainMenu()
+        {
+            Console.WriteLine("Welcome to the Library.  What would you like to do?");
+            Console.WriteLine("1. View all books available");
+            Console.WriteLine("2. Search books");
+            Console.WriteLine();
+            Console.Write("Enter a number selection: ");
+            GetInput(out menuChoice);
+
+            switch (menuChoice)
+            {
+                case 1:
+                    foreach (book bk in Library.TheLibrary.AllBooks)
+                    {
+                        Console.WriteLine(bk.ToString());
+                    }
+                    break;
+                case 2:
+                    SearchMenu();
+                    break;
+                //added new exception so we don't mistake unwritten code for buggy code.
+                default:
+                    throw new NotImplementedException();
+
+            }
+        }
+
+
+        //TODO
+        public static void CheckInMenu()
+        {
+            throw new NotImplementedException("Check in menu has not been created.");
+        }
+        public static void CheckOutMenu()
+        {
+            throw new NotImplementedException("Check out menu has not been created.");
+        }
+        public static void AddOrRemoveBook(bool isSuperUser)
+        {
+            throw new NotImplementedException("Adding or Removing books is not implemented yet.");
+        }
+
+
+        public static void SearchMenu()
+        {
+            Console.WriteLine("Please make a menu selection to search by:");
+            Console.WriteLine("1. Title".PadLeft(20) + "3. Author First Name");
+            Console.WriteLine("2. Category".PadLeft(20) + "4. Author Last Name");
+            Console.WriteLine();
+            GetInput(out menuChoice, "Menu Choice: ");
+            List<book> searchedBooks;
+            switch (menuChoice)
+            {
+                #region SearchingTitles
+                case 1:
+                    GetInput(out input, "Search titles for: ");
+                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.Title.Contains(input); });
+                    for (int i = 0; i < searchedBooks.Count; i++)
+                    {
+                        Console.WriteLine(searchedBooks[i]);
+                    }
+                    break;
+                #endregion
+
+                #region SearchingCategories
+                case 2:
+                    GetInput(out input, "Search categories for: ");
+                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.Category.Contains(input); });
+                    for (int i = 0; i < searchedBooks.Count; i++)
+                    {
+                        Console.WriteLine(searchedBooks[i]);
+                    }
+                    break;
+                #endregion
+
+                #region SearchingFirstNames
+                case 3:
+                    GetInput(out input, "Search author first names for: ");
+                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.AuthorFirst.Contains(input); });
+                    for (int i = 0; i < searchedBooks.Count; i++)
+                    {
+                        Console.WriteLine(searchedBooks[i]);
+                    }
+                    break;
+                #endregion
+
+                #region SearchingLastNames
+                case 4:
+                    GetInput(out input, "Search author last names for: ");
+                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.AuthorLast.Contains(input); });
+                    for (int i = 0; i < searchedBooks.Count; i++)
+                    {
+                        Console.WriteLine(searchedBooks[i]);
+                    }
+                    break;
+                #endregion
+
+                default:
+                    Console.Write("Invalid input, please try again:  ");
+                    menuChoice = int.Parse(Console.ReadLine());
+                    break;
+            }
+        }
+
+        public static void WelcomeScreen()
         {
 
             Console.WriteLine(Welcome_Header);
         }
 
-
+        //To Do: Validation
         #region InputMethods
-        //Currently assuming that the user only enters valid data.
+        //  ----------------!!!!!------------------   Currently assuming that the user only enters valid data. -------------!!!!!--------------
         public static void GetInput(out string myString)
         {
             Console.Write("Input: ");
