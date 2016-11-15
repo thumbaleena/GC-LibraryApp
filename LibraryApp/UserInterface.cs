@@ -76,11 +76,21 @@ namespace LibraryApp
 
         //TODO
         public static void CheckInMenu()
-        {
+        {  
             throw new NotImplementedException("Check in menu has not been created.");
         }
-        public static void CheckOutMenu()
+        public static void CheckOutMenu(Book bookToAdd, User userToAdd)
         {
+            Console.Write("Would you like to checkout? ");
+            bool myY;
+            GetInput(out myY);
+            if (myY)
+            {
+                bookToAdd.Status = false;
+                userToAdd.RentedBook = bookToAdd;
+            }
+
+
             throw new NotImplementedException("Check out menu has not been created.");
         }
         public static void AddOrRemoveBook(bool isSuperUser)
@@ -229,6 +239,20 @@ namespace LibraryApp
         {
             Console.Write(prompt);
             myFloat = float.Parse(Console.ReadLine());
+        }
+        public static void GetInput(out bool myY)
+        {
+            Console.Write("Enter y/ n:");
+            string input = Console.ReadLine();
+            if (input == "y")
+            {
+                myY = true;
+             
+            }
+            else
+            {
+                myY = false;
+            }
         }
         #endregion
 
