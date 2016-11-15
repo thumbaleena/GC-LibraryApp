@@ -45,7 +45,7 @@ namespace LibraryApp
             }
         }
 
-        public bool Status
+        public bool Status //if static = true, the book is checked OUT, if false - available
         {
             get
             {
