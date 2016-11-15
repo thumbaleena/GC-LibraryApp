@@ -30,6 +30,7 @@ namespace LibraryApp
             Console.WriteLine("Welcome to the Library.  What would you like to do?");
             Console.WriteLine("1. View all books available");
             Console.WriteLine("2. Search books");
+            Console.WriteLine("3. View all users");
             Console.WriteLine();
             Console.Write("Enter a number selection: ");
             GetInput(out menuChoice);
@@ -45,6 +46,14 @@ namespace LibraryApp
                 case 2:
                     SearchMenu();
                     break;
+
+                case 3:
+                    for (int i = 0; i < Library.TheLibrary.AllUsers.Count; i++)
+                                {
+                                    Console.WriteLine(Library.TheLibrary.AllUsers[i]);
+                                }
+                        break;
+
                 //added new exception so we don't mistake unwritten code for buggy code.
                 default:
                     throw new NotImplementedException();
@@ -71,21 +80,18 @@ namespace LibraryApp
         public static void SearchMenu()
         {
             Console.WriteLine("Please make a menu selection to search by:");
-            Console.WriteLine("1. Title".PadLeft(20) + "3. Author First Name");
-            Console.WriteLine("2. Category".PadLeft(20) + "4. Author Last Name");
+            Console.WriteLine("1. Title".PadRight(20) + "3. Author First Name");
+            Console.WriteLine("2. Category".PadRight(20) + "4. Author Last Name");
             Console.WriteLine();
             GetInput(out menuChoice, "Menu Choice: ");
             List<book> searchedBooks;
+            book searchedBook;
             switch (menuChoice)
             {
                 #region SearchingTitles
                 case 1:
-                    GetInput(out input, "Search titles for: ");
-                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.Title.Contains(input); });
-                    for (int i = 0; i < searchedBooks.Count; i++)
-                    {
-                        Console.WriteLine(searchedBooks[i]);
-                    }
+                    //searchedBooks = SearchForTitle();
+                    searchedBook = SearchForTitle();
                     break;
                 #endregion
 
@@ -127,6 +133,14 @@ namespace LibraryApp
                     menuChoice = int.Parse(Console.ReadLine());
                     break;
             }
+        }
+
+        private static book SearchForTitle()
+        {
+            book searchedBook;
+            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (book bk) { return bk.Title.Contains(input); });
+
+            return searchedBook;
         }
 
         public static void WelcomeScreen()

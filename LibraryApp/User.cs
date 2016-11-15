@@ -15,6 +15,7 @@ namespace LibraryApp
         private book rentedBook;
         private float totalFees;
 
+        //Tomjk@acdmail.com,Tom,Krueger,true,My Life,100
         public User(string email, string firstName, string lastName, bool powerUser, book rentedBook, float totalFees)
         {
             this.email = email;
@@ -88,5 +89,10 @@ namespace LibraryApp
         }
         #endregion
 
+        public override string ToString()
+        {
+            return FirstName + ", " + LastName + ", " + Email + ", " + TotalFees + ", " + PowerUser + "\n" +
+                   RentedBook;//rented book has a Overidden ToString();
+        }
     }
 }

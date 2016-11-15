@@ -14,6 +14,7 @@ namespace LibraryApp
         private float defaultFee;
         private float overDueFeeByDay;
         private List<book> allBooks;
+        private List<User> allUsers;
         public static Library TheLibrary;
         public Library(string address, string nameOfLibrary, TimeSpan defaultCheckoutTime, float defaultFee, float overDueFeeByDay)
         {
@@ -23,6 +24,7 @@ namespace LibraryApp
             this.defaultFee = defaultFee;
             this.overDueFeeByDay = overDueFeeByDay;
             allBooks = new List<book>();
+            allUsers = new List<User>();
             TheLibrary = this;
         }
 
@@ -77,7 +79,6 @@ namespace LibraryApp
                 defaultFee = value;
             }
         }
-
         public float OverDueFeeByDay
         {
             get
@@ -90,7 +91,6 @@ namespace LibraryApp
                 overDueFeeByDay = value;
             }
         }
-
         public List<book> AllBooks
         {
             get
@@ -101,6 +101,18 @@ namespace LibraryApp
             set
             {
                 allBooks = value;
+            }
+        }
+        public List<User> AllUsers
+        {
+            get
+            {
+                return allUsers;
+            }
+
+            set
+            {
+                allUsers = value;
             }
         }
     }

@@ -13,108 +13,60 @@ namespace LibraryApp
         {
             new Library("YadaAddress", "THELIBRARY", new TimeSpan(14, 0, 0, 0), .50f, .10f); //Creating a new Library to work with.. The Library will be stored in "Library.TheLibrary"
 
-            //Library = new List<book>();
 
             string bookFile = "../../bookList.txt";
             StreamReader bookReader = new StreamReader(bookFile);
             string bookData = bookReader.ReadToEnd().TrimEnd();
-            int menuChoice1 = 0;
-            int menuChoice2 = 1;
-            string input;
             List<book> results = new List<book>();
             var bookRecords = bookData.Split('\n');
             bookReader.Close();
-
-            Console.WriteLine("Welcome to the Library.  What would you like to do?");
-            Console.WriteLine("1. View all books available");
-            Console.WriteLine("2. Search books");
-            Console.WriteLine();
-            Console.Write("Enter a number selection: ");
-            menuChoice1 = int.Parse(Console.ReadLine());
-
-            switch (menuChoice1)
+            
+            
+            //Read Book File
+            foreach (var record in bookRecords)
             {
-                case 1:
-                    foreach (var record in bookRecords)
-                    {
-                        var rc = record.Split(',');
+                var rc = record.Split(',');
 
-                        Library.TheLibrary.AllBooks.Add(new book(rc[0], rc[1], rc[2], rc[3], bool.Parse(rc[4]), DateTime.Parse(rc[5]),
-                            int.Parse(rc[6]), float.Parse(rc[7]), float.Parse(rc[8])));
-
-                    }
-                    foreach (book bk in Library.TheLibrary.AllBooks)
-                    {
-                        Console.WriteLine(bk.ToString());
-                    }
-                    break;
-                //     case 2:
-                
-                //added new exception so we don't mistake unwritten code for buggy code.
-                default:
-                    throw new NotImplementedException();
+                Library.TheLibrary.AllBooks.Add(new book(rc[0], rc[1], rc[2], rc[3], bool.Parse(rc[4]), DateTime.Parse(rc[5]),
+                    int.Parse(rc[6]), float.Parse(rc[7]), float.Parse(rc[8])));
 
             }
 
-
-
-            #region Search
-            Console.WriteLine("Please make a menu selection to search by:");
-            Console.WriteLine("1. Title");
-            Console.WriteLine("2. Category");
-            Console.WriteLine("3. Author Last Names");
-            Console.WriteLine("4. Author First Names");
-            Console.WriteLine();
-            menuChoice2 = int.Parse(Console.ReadLine());
-
-            switch (menuChoice2)
+            //Read User File
+            List<User> Users = new List<User>();
+            string userFile = "../../userList.txt";
+            StreamReader userReader = new StreamReader(userFile);
+            string userData = userReader.ReadToEnd().TrimEnd();
+            List<User> userResults = new List<User>();
+            var userRecords = userData.Split('\n');
+            userReader.Close();
+            foreach (var user in userRecords)
             {
-                case 1:
-                    Console.Write("Search titles for: ");
-                    input = Console.ReadLine();
-                    results = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.Title.Contains(input); });
-                    for (int i = 0; i < results.Count; i++)
-                    {
-                        Console.WriteLine(results[i]);
-                    }
-                    break;
-
-                case 2:
-                    Console.Write("Search categories for: ");
-                    input = Console.ReadLine();
-                    results = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.Category.Contains(input); });
-                    for (int i = 0; i < results.Count; i++)
-                    {
-                        Console.WriteLine(results[i]);
-                    }
-                    break;
-
-                case 3:
-                    Console.Write("Search author last names for: ");
-                    input = Console.ReadLine();
-                    results = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.AuthorLast.Contains(input); });
-                    for (int i = 0; i < results.Count; i++)
-                    {
-                        Console.WriteLine(results[i]);
-                    }
-                    break;
-
-                case 4:
-                    Console.Write("Search author first names for: ");
-                    input = Console.ReadLine();
-                    results = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.AuthorFirst.Contains(input); });
-                    for (int i = 0; i < results.Count; i++)
-                    {
-                        Console.WriteLine(results[i]);
-                    }
-                    break;
-
-                default:
-                    Console.Write("Invalid input, please try again:  ");
-                    menuChoice2 = int.Parse(Console.ReadLine());
-                    break;
+                var rc = user.Split(',');
+                book rentedBook = SearchForTitle(rc[4]);
+                Library.TheLibrary.AllUsers.Add(new User(rc[0], rc[1], rc[2], bool.Parse(rc[3]), rentedBook, float.Parse(rc[5]))); //trouble with rc[4] because the data type is "book".  what would be the best way to pass the object?
             }
-            #endregion
+
+            UserInterface.RunGUI();
+        }
+
+
+        private static book SearchForTitle()
+        {
+            string input;
+            book searchedBook;
+            UserInterface.GetInput(out input, "Search titles for: ");
+            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (book bk) { return bk.Title.Contains(input); });
+
+            return searchedBook;
+        }
+        private static book SearchForTitle(string TitleToSearch)
+        {
+            book searchedBook;
+            
+            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (book bk) { return bk.Title.Contains(TitleToSearch); });
+
+            return searchedBook;
         }
     }
 }
