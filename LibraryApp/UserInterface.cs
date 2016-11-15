@@ -162,6 +162,14 @@ namespace LibraryApp
 
             return searchedBook;
         }
+        public static User SearchForUser(string UserToSearch)
+        {
+            User searchedUser;
+
+            searchedUser = Library.TheLibrary.AllUsers.Find(delegate (User user) { return user.Email.Contains(UserToSearch); });
+
+            return searchedUser;
+        }
 
         public static void WelcomeScreen()
         {

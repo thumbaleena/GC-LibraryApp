@@ -46,6 +46,21 @@ namespace LibraryApp
                 Book rentedBook = UserInterface.SearchForTitle(rc[4]);
                 Library.TheLibrary.AllUsers.Add(new User(rc[0], rc[1], rc[2], bool.Parse(rc[3]), rentedBook, float.Parse(rc[5]))); //trouble with rc[4] because the data type is "book".  what would be the best way to pass the object?
             }
+
+            List<Record> Records = new List<Record>();
+            string recordFile = "../../checkoutRecords.txt";
+            StreamReader recordReader = new StreamReader(recordFile);
+            string recordData = recordReader.ReadToEnd().TrimEnd();
+            List<Record> recordResults = new List<Record>();
+            var recordRecords = recordData.Split('\n');
+            recordReader.Close();
+            foreach (var record in recordRecords)
+            {
+                var rc = record.Split(',');
+                Book rentedBook = UserInterface.SearchForTitle(rc[1]);
+                User currentUser = UserInterface.SearchForUser(rc[0]);
+                Library.TheLibrary.AllRecords.Add(new Record(currentUser, rentedBook, Convert.ToDateTime(rc[2]), Convert.ToDateTime(rc[3]), int.Parse(rc[4]), float.Parse(rc[5]))); //trouble with rc[4] because the data type is "book".  what would be the best way to pass the object?
+            }
             UserInterface.RunGUI();
         }
 
