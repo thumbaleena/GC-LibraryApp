@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +11,7 @@ namespace LibraryApp
     {
         static string input;
         static int menuChoice;
+        private static string email; //new
         static string Welcome_Header = "Welcome to the library application for " + "";
 
         public static void RunGUI()
@@ -27,10 +29,12 @@ namespace LibraryApp
         //Later: Pay Fee
         public static void MainMenu()
         {
+            WelcomeScreen(); //new
             Console.WriteLine("Welcome to the Library.  What would you like to do?");
             Console.WriteLine("1. View all books available");
             Console.WriteLine("2. Search books");
             Console.WriteLine("3. View all users");
+            Console.WriteLine("4. Account Overview");
             Console.WriteLine();
             //Console.Write();
             GetInput(out menuChoice,"Enter a number selection: ");
@@ -53,7 +57,15 @@ namespace LibraryApp
                                     Console.WriteLine(Library.TheLibrary.AllUsers[i]);
                                 }
                         break;
-
+                case 4:
+                    foreach (Record record in Library.TheLibrary.AllRecords)
+                    {
+                        if (record.User.Email.Contains(email) && (record.Book.Status==true || record.CurrentLateFee >= 0))
+                        {
+                            
+                        }
+                    }
+                    break;
                 //added new exception so we don't mistake unwritten code for buggy code.
                 default:
                     throw new NotImplementedException();
@@ -161,10 +173,28 @@ namespace LibraryApp
             return searchedUser;
         }
 
-        public static void WelcomeScreen()
+        public static void WelcomeScreen() //new
         {
 
             Console.WriteLine(Welcome_Header);
+            Console.Write("Please enter your email address: ");
+            string email = Console.ReadLine();
+            Console.WriteLine();
+            User currentUser = SearchForUser(email);
+            if (currentUser == null)
+            {
+                Console.WriteLine("User does not exist.  Please register.");
+                Console.Write("First Name: ");
+                string fn = Console.ReadLine();
+                Console.Write("Last Name: ");
+                string ln = Console.ReadLine();
+                Library.TheLibrary.AllUsers.Add(new User(email, fn, ln, false, null, 0));
+                Console.WriteLine();
+            }
+            else if (currentUser != null)
+            {
+                Console.WriteLine("User Profile Found. Account Overview: \n");
+            }
         }
 
         //To Do: Validation

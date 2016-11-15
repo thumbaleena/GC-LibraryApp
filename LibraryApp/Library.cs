@@ -26,6 +26,7 @@ namespace LibraryApp
             this.overDueFeeByDay = overDueFeeByDay;
             allBooks = new List<Book>();
             allUsers = new List<User>();
+            allRecords = new List<Record>();
             TheLibrary = this;
         }
 

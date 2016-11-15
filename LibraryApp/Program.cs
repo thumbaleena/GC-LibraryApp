@@ -59,9 +59,11 @@ namespace LibraryApp
                 var rc = record.Split(',');
                 Book rentedBook = UserInterface.SearchForTitle(rc[1]);
                 User currentUser = UserInterface.SearchForUser(rc[0]);
-                Library.TheLibrary.AllRecords.Add(new Record(currentUser, rentedBook, Convert.ToDateTime(rc[2]), Convert.ToDateTime(rc[3]), int.Parse(rc[4]), float.Parse(rc[5]))); //trouble with rc[4] because the data type is "book".  what would be the best way to pass the object?
+                Library.TheLibrary.AllRecords.Add(new Record(currentUser, rentedBook, Convert.ToDateTime(rc[2]), Convert.ToDateTime(rc[3]), int.Parse(rc[4]), float.Parse(rc[5]))); 
             }
-            UserInterface.RunGUI();
+
+
+        UserInterface.RunGUI();
         }
 
     }
