@@ -13,7 +13,7 @@ namespace LibraryApp
         private TimeSpan defaultCheckoutTime;
         private float defaultFee;
         private float overDueFeeByDay;
-        private List<book> allBooks;
+        private List<Book> allBooks;
         private List<User> allUsers;
         public static Library TheLibrary;
         public Library(string address, string nameOfLibrary, TimeSpan defaultCheckoutTime, float defaultFee, float overDueFeeByDay)
@@ -23,7 +23,7 @@ namespace LibraryApp
             this.defaultCheckoutTime = defaultCheckoutTime;
             this.defaultFee = defaultFee;
             this.overDueFeeByDay = overDueFeeByDay;
-            allBooks = new List<book>();
+            allBooks = new List<Book>();
             allUsers = new List<User>();
             TheLibrary = this;
         }
@@ -91,7 +91,7 @@ namespace LibraryApp
                 overDueFeeByDay = value;
             }
         }
-        public List<book> AllBooks
+        public List<Book> AllBooks
         {
             get
             {

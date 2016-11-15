@@ -12,11 +12,11 @@ namespace LibraryApp
         private string firstName;
         private string lastName;
         private bool powerUser;
-        private book rentedBook;
+        private Book rentedBook;
         private float totalFees;
 
         //Tomjk@acdmail.com,Tom,Krueger,true,My Life,100
-        public User(string email, string firstName, string lastName, bool powerUser, book rentedBook, float totalFees)
+        public User(string email, string firstName, string lastName, bool powerUser, Book rentedBook, float totalFees)
         {
             this.email = email;
             this.firstName = firstName;
@@ -63,7 +63,7 @@ namespace LibraryApp
             }
 
         }
-        public book RentedBook
+        public Book RentedBook
         {
             get
             {

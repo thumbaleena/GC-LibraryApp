@@ -38,7 +38,7 @@ namespace LibraryApp
             switch (menuChoice)
             {
                 case 1:
-                    foreach (book bk in Library.TheLibrary.AllBooks)
+                    foreach (Book bk in Library.TheLibrary.AllBooks)
                     {
                         Console.WriteLine(bk.ToString());
                     }
@@ -84,8 +84,8 @@ namespace LibraryApp
             Console.WriteLine("2. Category".PadRight(20) + "4. Author Last Name");
             Console.WriteLine();
             GetInput(out menuChoice, "Menu Choice: ");
-            List<book> searchedBooks;
-            book searchedBook;
+            List<Book> searchedBooks;
+            Book searchedBook;
             switch (menuChoice)
             {
                 #region SearchingTitles
@@ -98,7 +98,7 @@ namespace LibraryApp
                 #region SearchingCategories
                 case 2:
                     GetInput(out input, "Search categories for: ");
-                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.Category.Contains(input); });
+                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (Book bk) { return bk.Category.Contains(input); });
                     for (int i = 0; i < searchedBooks.Count; i++)
                     {
                         Console.WriteLine(searchedBooks[i]);
@@ -109,7 +109,7 @@ namespace LibraryApp
                 #region SearchingFirstNames
                 case 3:
                     GetInput(out input, "Search author first names for: ");
-                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.AuthorFirst.Contains(input); });
+                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (Book bk) { return bk.AuthorFirst.Contains(input); });
                     for (int i = 0; i < searchedBooks.Count; i++)
                     {
                         Console.WriteLine(searchedBooks[i]);
@@ -120,7 +120,7 @@ namespace LibraryApp
                 #region SearchingLastNames
                 case 4:
                     GetInput(out input, "Search author last names for: ");
-                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (book bk) { return bk.AuthorLast.Contains(input); });
+                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (Book bk) { return bk.AuthorLast.Contains(input); });
                     for (int i = 0; i < searchedBooks.Count; i++)
                     {
                         Console.WriteLine(searchedBooks[i]);
@@ -135,10 +135,20 @@ namespace LibraryApp
             }
         }
 
-        private static book SearchForTitle()
+        public static Book SearchForTitle()
         {
-            book searchedBook;
-            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (book bk) { return bk.Title.Contains(input); });
+            string input;
+            Book searchedBook;
+            UserInterface.GetInput(out input, "Search titles for: ");
+            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (Book bk) { return bk.Title.Contains(input); });
+
+            return searchedBook;
+        }
+        public static Book SearchForTitle(string TitleToSearch)
+        {
+            Book searchedBook;
+
+            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (Book bk) { return bk.Title.Contains(TitleToSearch); });
 
             return searchedBook;
         }
@@ -183,5 +193,6 @@ namespace LibraryApp
             myFloat = float.Parse(Console.ReadLine());
         }
         #endregion
+
     }
 }

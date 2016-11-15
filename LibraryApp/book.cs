@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryApp
 {
-    class book
+    public class Book
     {
         private string title;
         private bool status;
@@ -19,7 +19,7 @@ namespace LibraryApp
         private float currentLateFee;
         
 
-        public book(string category, string title, string authorFirst, string authorLast, bool status, DateTime dueDate, int daysOverdue, float bookValue, float currentLateFee)
+        public Book(string category, string title, string authorFirst, string authorLast, bool status, DateTime dueDate, int daysOverdue, float bookValue, float currentLateFee)
         {
             this.title = title;
             this.status = status;

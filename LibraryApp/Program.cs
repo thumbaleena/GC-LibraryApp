@@ -17,7 +17,7 @@ namespace LibraryApp
             string bookFile = "../../bookList.txt";
             StreamReader bookReader = new StreamReader(bookFile);
             string bookData = bookReader.ReadToEnd().TrimEnd();
-            List<book> results = new List<book>();
+            List<Book> results = new List<Book>();
             var bookRecords = bookData.Split('\n');
             bookReader.Close();
             
@@ -27,7 +27,7 @@ namespace LibraryApp
             {
                 var rc = record.Split(',');
 
-                Library.TheLibrary.AllBooks.Add(new book(rc[0], rc[1], rc[2], rc[3], bool.Parse(rc[4]), DateTime.Parse(rc[5]),
+                Library.TheLibrary.AllBooks.Add(new Book(rc[0], rc[1], rc[2], rc[3], bool.Parse(rc[4]), DateTime.Parse(rc[5]),
                     int.Parse(rc[6]), float.Parse(rc[7]), float.Parse(rc[8])));
 
             }
@@ -43,30 +43,11 @@ namespace LibraryApp
             foreach (var user in userRecords)
             {
                 var rc = user.Split(',');
-                book rentedBook = SearchForTitle(rc[4]);
+                Book rentedBook = UserInterface.SearchForTitle(rc[4]);
                 Library.TheLibrary.AllUsers.Add(new User(rc[0], rc[1], rc[2], bool.Parse(rc[3]), rentedBook, float.Parse(rc[5]))); //trouble with rc[4] because the data type is "book".  what would be the best way to pass the object?
             }
-
             UserInterface.RunGUI();
         }
 
-
-        private static book SearchForTitle()
-        {
-            string input;
-            book searchedBook;
-            UserInterface.GetInput(out input, "Search titles for: ");
-            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (book bk) { return bk.Title.Contains(input); });
-
-            return searchedBook;
-        }
-        private static book SearchForTitle(string TitleToSearch)
-        {
-            book searchedBook;
-            
-            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (book bk) { return bk.Title.Contains(TitleToSearch); });
-
-            return searchedBook;
-        }
     }
 }
