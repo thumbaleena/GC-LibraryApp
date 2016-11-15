@@ -32,8 +32,8 @@ namespace LibraryApp
             Console.WriteLine("2. Search books");
             Console.WriteLine("3. View all users");
             Console.WriteLine();
-            Console.Write("Enter a number selection: ");
-            GetInput(out menuChoice);
+            //Console.Write();
+            GetInput(out menuChoice,"Enter a number selection: ");
 
             switch (menuChoice)
             {
