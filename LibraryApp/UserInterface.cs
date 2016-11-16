@@ -67,6 +67,8 @@ namespace LibraryApp
                 case 5:
                     CheckInMenu();
                     break;
+                case 6:
+                    break;
                 //added new exception so we don't mistake unwritten code for buggy code.
                 default:
                     throw new NotImplementedException();
@@ -134,21 +136,30 @@ namespace LibraryApp
         }
         public static void CheckOutMenu(Book bookToAdd, User userToAdd)
         {
-            Console.Write("Would you like to checkout? ");
-            bool myY;
+            string input;
+            Book searchedBook;
+            UserInterface.GetInput(out input, "Search titles for: ");
+            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (Book bk) { return bk.Title.Contains(input); });
+            if (searchedBook != null)  //there could be a lot of different things to validate here - is it checked out to the current user? etc.
+            {
+                Console.WriteLine("Book found. Check out?");
+            }
+            searchedBook.CheckedOutTo = email;
+            searchedBook.Status = true;
+         /*   bool myY;
             GetInput(out myY);
             if (myY)
             {
                 bookToAdd.Status = false;
                 userToAdd.RentedBook = bookToAdd;
-                /* all records.add(new Record(user.Book));*/
+                /* all records.add(new Record(user.Book));
 
 
 
             }
 
 
-            throw new NotImplementedException("Check out menu has not been created.");
+            throw new NotImplementedException("Check out menu has not been created."); */
         }
         public static void AddOrRemoveBook(bool isSuperUser)
         {
