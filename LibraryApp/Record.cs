@@ -158,7 +158,7 @@ namespace LibraryApp
 
         public override string ToString()
         {
-            return Book + ", Checked out on: " + CheckOutDate +", Check-in date: "+CheckInDate+", Checked-out status: "+activeStatus;
+            return Book + "\n Checked out on: " + CheckOutDate +", Check-in date: "+CheckInDate+", Checked-out status: "+activeStatus;
         }
         public string ToFileFormat()
         {

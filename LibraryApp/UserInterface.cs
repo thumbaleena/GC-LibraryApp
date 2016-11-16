@@ -115,10 +115,11 @@ namespace LibraryApp
             Book searchedBook;
             UserInterface.GetInput(out input, "Search titles for: ");
             searchedBook = Library.TheLibrary.AllBooks.Find(delegate (Book bk) { return bk.Title.Contains(input); });
-            if (searchedBook != null)  //there could be a lot of different things to validate here - is it checked out to the current user? etc.
+            if (searchedBook.CheckedOutTo.Contains(email))  //there could be a lot of different things to validate here - is it checked out to the current user? etc.
             {
-                Console.WriteLine("Book found. Check in?");
+                Console.WriteLine("Book found. Press any key to check in.");
             }
+            Console.ReadKey();
             searchedBook.CheckedOutTo = "";
             searchedBook.Status = false;
             Record searchedRecord;
@@ -127,7 +128,7 @@ namespace LibraryApp
                     delegate (Record r) { return (r.Book.Title.Contains(input)); });
             searchedRecord.CheckInDate = DateTime.Today;
             searchedRecord.ActiveStatus = false;
-            Console.WriteLine(searchedRecord);
+            Console.WriteLine("Check-out Records' updated status: "+searchedRecord);
             //Console.WriteLine("Please enter the title of your book")
             //Getbook from user
             //Code to check borrowdate and current date -
