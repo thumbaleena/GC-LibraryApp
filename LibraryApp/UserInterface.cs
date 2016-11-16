@@ -76,6 +76,7 @@ namespace LibraryApp
             {
                 bookToAdd.Status = false;
                 userToAdd.RentedBook = bookToAdd;
+                /* all records.add(new Record(user.Book));*/
             }
 
 
