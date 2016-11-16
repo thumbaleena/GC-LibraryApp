@@ -20,17 +20,17 @@ namespace LibraryApp
         private string checkedOutTo;
         
 
-        public Book(string category, string title, string authorFirst, string authorLast, bool status, DateTime dueDate, int daysOverdue, float bookValue, float currentLateFee, string checkedOutTo)
+        public Book(string category, string title, string authorFirst, string authorLast, bool status,/* DateTime dueDate, int daysOverdue, float bookValue, float currentLateFee, */string checkedOutTo)
         {
             this.title = title;
             this.status = status;
             this.authorFirst = authorFirst;
             this.authorLast = authorLast;
             this.category = category;
-            this.dueDate = dueDate;
+   /*         this.dueDate = dueDate;
             this.daysOverdue = DaysOverdue;
             this.bookValue = bookValue;
-            this.currentLateFee = currentLateFee;
+            this.currentLateFee = currentLateFee; */
             this.checkedOutTo = checkedOutTo;
         }
 

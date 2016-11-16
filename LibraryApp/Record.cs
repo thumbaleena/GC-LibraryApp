@@ -35,9 +35,9 @@ namespace LibraryApp
         // Used when Checking out a book.
         #region CheckoutRecord
         public Record(User currentUser, Book currentBook)
-        {
-            this.currentUser = currentUser;
-            this.currentBook = currentBook;
+       {
+           this.currentUser = currentUser;
+           this.currentBook = currentBook;
             dueDate = SetDueDate(); //14 days from today
             checkOutDate = DateTime.Today;
             daysOverdue = 0;
@@ -55,7 +55,7 @@ namespace LibraryApp
             dueDate = dateTime2;
             daysOverdue = CalculateDaysOverdue();
             currentLateFee = CalculateOverdueFees();
-        }
+       }
         #endregion
 
         #endregion
@@ -97,6 +97,7 @@ namespace LibraryApp
                 dueDate = value;
             }
         }
+
         public int DaysOverdue
         {
             get { return daysOverdue; }
@@ -140,7 +141,7 @@ namespace LibraryApp
 
         public override string ToString()
         {
-            return Book+", "+CheckOutDate;
+            return Book + ", Checked out on: " + CheckOutDate;
         }
     }
 }
