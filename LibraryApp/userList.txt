@@ -1,2 +1,2 @@
 ﻿Tomjk@acdmail.com,Tom,Krueger,true,My Life,100
-Tomjk@acdmail.com,Tom,Krueger,false,Boss Moves,100
+william@outlook.com,Bill,Gates,false,Boss Moves,0

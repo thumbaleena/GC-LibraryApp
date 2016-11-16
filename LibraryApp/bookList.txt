@@ -1,95 +1,95 @@
-﻿Fiction,Ulysses,James,Joyce,false,11/11/2016,0,0.0,0.0
-Fiction,American Psycho,Brett,Easton-Ellis,false,11/11/2016,0,0.0,0.0
-Fiction,Vineland,Thomas,Pynchon,false,11/11/2016,0,0.0,0.0
-Fiction,Life: A User's Manual,Georges,Perec,false,11/11/2016,0,0.0,0.0
-Fiction,A Long Project,Will,Spencer,false,11/11/2016,0,0.0,0.0
-Fiction,Tedious,Jay,Kelley,false,11/11/2016,0,0.0,0.0
-Fiction,Fifty Shades of Jay,Jay,Watt,true,11/11/2016,0,0.0,0.0
-Fiction,Ride Or Die,Dee,Emex,true,11/11/2016,0,0.0,0.0
-Nonfiction,Boughetto: An Autobiography,Jay,Watt,false,11/11/2016,0,0.0,0.0
-Nonfiction,My Life,Jesus,Christ,false,11/25/2016,0,0.0,0.0
-Nonfiction,It Is Like So Easy,Doctor,Kamel,true,11/11/2016,0,0.0,0.0
-Nonfiction,Just Google It,Doctor,Kamel,false,11/11/2016,0,0.0,0.0
-Nonfiction,Started From The Bottom,Greg,Allday,false,11/11/2016,0,0.0,0.0
-Nonfiction,The Game Remain The Same,Greg,Allday,true,11/11/2016,0,0.0,0.0
-Nonfiction,Huntin' & Stuntin',Dick,Dieterle,false,11/11/2016,0,0.0,0.0
-Nonfiction,Boss Moves,Jeseekia,Vaughn,false,11/11/2016,0,0.0,0.0
-Childrens,Power Stances,Kim,Driscoll,false,11/11/2016,0,0.0,0.0
-Childrens,How To Disappear in America,Calvin,Harris,true,11/11/2016,0,0.0,0.0
-Childrens,The Aalphabet,Aaron,Wolff,false,11/11/2016,0,0.0,0.0
-Childrens,The Chioke Doctrine,Chioke,M.T,false,11/11/2016,0,0.0,0.0
-Childrens,Double Agent,Trevon,Thomas,false,11/11/2016,0,0.0,0.0
-Childrens,Cool Beans!!,Saresa,Smith,false,11/11/2016,0,0.0,0.0
-Childrens,Super Dad,Jason,Scott,false,11/11/2016,0,0.0,0.0
-Childrens,Theater For Kids,Mahogany,Yancey,false,11/11/2016,0,0.0,0.0
-Reference,Data Mining,Celena,Mancina,false,11/11/2016,0,0.0,0.0
-Reference,How To Run A Million Dollar BEAST,Damien,Rocchi,true,11/11/2016,0,0.0,0.0
-Reference,The Backend,Maurice,Tedder,false,11/11/2016,0,0.0,0.0
-Reference,Popular Karaoke,Aisha,Blake,false,11/11/2016,0,0.0,0.0
-Reference,How To Behave,Ian,Washington,false,11/11/2016,0,0.0,0.0
-Reference,Street Tactics,Bill,Spencer,false,11/11/2016,0,0.0,0.0
-Reference,Trappin 101,Bill,Spencer,false,11/11/2016,0,0.0,0.0
-Reference,Running around and Getting It,James,Kelly,false,11/11/2016,0,0.0,0.0
-Nonfiction,From the Block the Boardroom,James,Kelly,false,11/11/2016,0,0.0,0.0
-Nonfiction,It is Truly Hard Out Here for a Pimp,James,Kelly,true,11/11/2016,0,0.0,0.0
-Nonfiction,If you Ain't Got No Haters You Ain't Poppin,Rico,Richie,false,11/11/2016,0,0.0,0.0
-Nonfiction,She Touched My Garment,Lukejohn,Matthew,true,11/11/2016,0,0.0,0.0
-Nonfiction,How to Flip These Fish,Lukejohn,Matthew,false,11/11/2016,0,0.0,0.0
-Nonfiction,I Let the Water Turn Brown,Rick,Snyder,false,11/11/2016,0,0.0,0.0
-Nonfiction,It Ain't My Fault,Rick,Snyder,false,11/11/2016,0,0.0,0.0
-Reference,The Ins and Outs of Detroit Coney Island,Lafayette,American,false,11/11/2016,0,0.0,0.0
-Reference,How to Navigate the Food Trucks,Lafayette,American,false,11/11/2016,0,0.0,0.0
-Reference,Are You Really About this Coding Life,Soa,Easy,true,11/11/2016,0,0.0,0.0
-Reference,Like it Love it Code it,Soa,Easy,true,11/11/2016,0,0.0,0.0
-Reference,Faces of Aristorats,Carrington,Hartnabrig,false,11/11/2016,0,0.0,0.0
-Reference,Detroit Slang and Grammar,Carrington,Hartnabrig,false,11/11/2016,0,0.0,0.0
-Reference,A Guide to Stepping Your Game Up,Cookie,Stevens,true,11/11/2016,0,0.0,0.0
-Reference,Empire Encyclopedia,Cookie,Stevens,false,11/11/2016,0,0.0,0.0
-Childrens,Am I supposed to Watch Myself,North,West,false,11/11/2016,0,0.0,0.0
-Childrens,Is Momma a Movie Start,North,West,true,11/11/2016,0,0.0,0.0
-Childrens,How to Slay,BlueIvy,Carter,true,11/11/2016,0,0.0,0.0
-Childrens,I am Not My Hair,BlueIvy,Carter,false,11/11/2016,0,0.0,0.0
-Childrens,Why My Mama Do That,RobbyBob,Swanson, false,11/11/2016,0,0.0,0.0
-Childrens,My First Shotgun,RobbyBob,Swanson,false,11/11/2016,0,0.0,0.0
-Childrens,Them Dishes Ain't GonnaWash Themselves,RobbyBob,Swanson,false,11/11/2016,0,0.0,0.0
-Childrens,How to Read for Points,Jay,Watts, false,11/11/2016,0,0.0,0.0
-Fiction,Bands Madeth Thouest Dance,Othello,Juicy, false,11/11/2016,0,0.0,0.0
-Fiction,Thouest Whench Is Mine,Othello,Juicy,true,11/11/2016,0,0.0,0.0
-Fiction,My Presidency,Donald,Trump,false,11/11/2016,0,0.0,0.0
-Fiction,I am a Honest American,Donald,Trump,false,11/11/2016,0,0.0,0.0
-Fiction,Knucketh if Thouest Bucketh,Othello,Juicy,false,11/11/2016,0,0.0,0.0
-Fiction,Space Amazonians,Neva,Salty,false,11/11/2016,0,0.0,0.0
-Fiction,He Took My Seasoning with my Heart,Neva,Salty,false,11/11/2016,0,0.0,0.0
-Fiction,The Thirst that Consumed Me,Neva,Salty,false,11/11/2016,0,0.0,0.0
-Fiction,The Bluest Eye,Toni,Morisson,false,11/11/2016,0,0.0,0.0
-Fiction,Home,Toni,Morisson,true,11/11/2016,0,0.0,0.0
-Fiction,Mean Girls Do Better,Momo,Yanze,false,11/11/2016,0,0.0,0.0
-Fiction,I be Clachet,Jay,Watt,true,11/11/2016,0,0.0,0.0
-Fiction,Serious Tome,Pretentious,Writer,false,11/11/2016,0,0.0,0.0
-Fiction,The Bell Jar,Slyvia,Plath,true,11/11/2016,0,0.0,0.0
-Fiction,The Runaway Jury,John,Grisham,false,11/11/2016,0,0.0,0.0
-Fiction,Run hard not fast,Bill,Spencer,true,11/11/2016,0,0.0,0.0
-Nonfiction,I went to Asia and didnt tell nobody,Calvin,Harris,false,11/11/2016,0,0.0,0.0
-Nonfiction,True Confessions of an Uber Driver,Alex,Marks,true,11/11/2016,0,0.0,0.0
-Nonfiction,How to be ghetto without trying too hard,Momo,Yanze,true,11/11/2016,0,0.0,0.0
-Nonfiction,The ABCs of Coding,Kamel,ItssoEasy,false,11/11/2016,0,0.0,0.0
-Nonfiction,How to Get Away With Murder in TV,Shonda,Rhimes,true,11/11/2016,0,0.0,0.0
-Nonfiction,Im the most famous person in the world really tho,Kanye,West,false,11/11/2016,0,0.0,0.0
-Nonfiction,My parents screwed me up really tho,North,West,true,11/11/2016,0,0.0,0.0
-Nonfiction,Its not easy being breezy,Kim,Driscoll,false,11/11/2016,0,0.0,0.0
-Childrens,Green Eggs and Hame,Dr,Seuss,true,11/11/2016,0,0.0,0.0
-Childrens,Speak when Spoken to,Momo,Yanze,false,11/11/2016,0,0.0,0.0
-Childrens,Cow Moon Duck,Kamel,ItssoEasy,true,11/11/2016,0,0.0,0.0
-Childrens,Where the Wild things are,Maurice,Sendak,false,11/11/2016,0,0.0,0.0
-Childrens,Matilda,Roald,Dahl,true,11/11/2016,0,0.0,0.0
-Childrens,The Cat in the Hat,Dr,Seuss,false,11/11/2016,0,0.0,0.0
-Childrens,Its not easy being green,Kermit,TheFrog,true,11/11/2016,0,0.0,0.0
-Childrens,Ameilia Bedelia,Peggy,Parish,true,11/11/2016,0,0.0,0.0
-Reference,CodeSchool for Dummies,Momo,Yanze,false,11/11/2016,0,0.0,0.0
-Reference,Politics in the age of Rebellion,Barack,Obama,true,11/11/2016,0,0.0,0.0
-Reference,How to go to Asia without telling nobody,Calvin,Harris,true,11/11/2016,0,0.0,0.0
-Reference,Codein and Commas: A how to guide,Future,Rapper,false,11/11/2016,0,0.0,0.0
-Reference,MLA Writing Guide,Important,Writer,true,11/11/2016,0,0.0,0.0
-Reference,Business Law,Important,Lawyer,false,11/11/2016,0,0.0,0.0
-Reference,Gardening A to Z,Saresa,Smith,true,11/11/2016,0,0.0,0.0
-Reference,How to be good at Everything,James,Kelly,false,11/11/2016,0,0.0,0.0
+﻿Nonfiction,Boss Moves,Jeseekia,Vaughn,false,11/11/2016,0,0.0,0.0,
+Nonfiction,My Life,Jesus,Christ,true,11/25/2016,0,0.0,0.0,Tomjk@acdmail.com
+Fiction,Ulysses,James,Joyce,false,11/11/2016,0,0.0,0.0,
+Fiction,American Psycho,Brett,Easton-Ellis,false,11/11/2016,0,0.0,0.0,
+Fiction,Vineland,Thomas,Pynchon,false,11/11/2016,0,0.0,0.0,
+Fiction,Life: A User's Manual,Georges,Perec,false,11/11/2016,0,0.0,0.0,
+Fiction,A Long Project,Will,Spencer,true,11/11/2016,0,0.0,0.0,Tomjk@acdmail.com
+Fiction,Tedious,Jay,Kelley,false,11/11/2016,0,0.0,0.0,
+Fiction,Fifty Shades of Jay,Jay,Watt,true,11/11/2016,0,0.0,0.0,
+Fiction,Ride Or Die,Dee,Emex,true,11/11/2016,0,0.0,0.0,
+Nonfiction,Boughetto: An Autobiography,Jay,Watt,false,11/11/2016,0,0.0,0.0,
+Nonfiction,It Is Like So Easy,Doctor,Kamel,true,11/11/2016,0,0.0,0.0,
+Nonfiction,Just Google It,Doctor,Kamel,false,11/11/2016,0,0.0,0.0,
+Nonfiction,Started From The Bottom,Greg,Allday,false,11/11/2016,0,0.0,0.0,
+Nonfiction,The Game Remain The Same,Greg,Allday,true,11/11/2016,0,0.0,0.0,
+Nonfiction,Huntin' & Stuntin',Dick,Dieterle,false,11/11/2016,0,0.0,0.0,
+Childrens,Power Stances,Kim,Driscoll,false,11/11/2016,0,0.0,0.0,
+Childrens,How To Disappear in America,Calvin,Harris,true,11/11/2016,0,0.0,0.0,
+Childrens,The Aalphabet,Aaron,Wolff,false,11/11/2016,0,0.0,0.0,
+Childrens,The Chioke Doctrine,Chioke,M.T,false,11/11/2016,0,0.0,0.0,
+Childrens,Double Agent,Trevon,Thomas,false,11/11/2016,0,0.0,0.0,
+Childrens,Cool Beans!!,Saresa,Smith,false,11/11/2016,0,0.0,0.0,
+Childrens,Super Dad,Jason,Scott,false,11/11/2016,0,0.0,0.0,
+Childrens,Theater For Kids,Mahogany,Yancey,false,11/11/2016,0,0.0,0.0,
+Reference,Data Mining,Celena,Mancina,false,11/11/2016,0,0.0,0.0,
+Reference,How To Run A Million Dollar BEAST,Damien,Rocchi,true,11/11/2016,0,0.0,0.0,
+Reference,The Backend,Maurice,Tedder,false,11/11/2016,0,0.0,0.0,
+Reference,Popular Karaoke,Aisha,Blake,false,11/11/2016,0,0.0,0.0,
+Reference,How To Behave,Ian,Washington,false,11/11/2016,0,0.0,0.0,
+Reference,Street Tactics,Bill,Spencer,false,11/11/2016,0,0.0,0.0,
+Reference,Trappin 101,Bill,Spencer,false,11/11/2016,0,0.0,0.0,
+Reference,Running around and Getting It,James,Kelly,false,11/11/2016,0,0.0,0.0,
+Nonfiction,From the Block the Boardroom,James,Kelly,false,11/11/2016,0,0.0,0.0,
+Nonfiction,It is Truly Hard Out Here for a Pimp,James,Kelly,true,11/11/2016,0,0.0,0.0,
+Nonfiction,If you Ain't Got No Haters You Ain't Poppin,Rico,Richie,false,11/11/2016,0,0.0,0.0,
+Nonfiction,She Touched My Garment,Lukejohn,Matthew,true,11/11/2016,0,0.0,0.0,
+Nonfiction,How to Flip These Fish,Lukejohn,Matthew,false,11/11/2016,0,0.0,0.0,
+Nonfiction,I Let the Water Turn Brown,Rick,Snyder,false,11/11/2016,0,0.0,0.0,
+Nonfiction,It Ain't My Fault,Rick,Snyder,false,11/11/2016,0,0.0,0.0,
+Reference,The Ins and Outs of Detroit Coney Island,Lafayette,American,false,11/11/2016,0,0.0,0.0,
+Reference,How to Navigate the Food Trucks,Lafayette,American,false,11/11/2016,0,0.0,0.0,
+Reference,Are You Really About this Coding Life,Soa,Easy,true,11/11/2016,0,0.0,0.0,
+Reference,Like it Love it Code it,Soa,Easy,true,11/11/2016,0,0.0,0.0,
+Reference,Faces of Aristorats,Carrington,Hartnabrig,false,11/11/2016,0,0.0,0.0,
+Reference,Detroit Slang and Grammar,Carrington,Hartnabrig,false,11/11/2016,0,0.0,0.0,
+Reference,A Guide to Stepping Your Game Up,Cookie,Stevens,true,11/11/2016,0,0.0,0.0,
+Reference,Empire Encyclopedia,Cookie,Stevens,false,11/11/2016,0,0.0,0.0,
+Childrens,Am I supposed to Watch Myself,North,West,false,11/11/2016,0,0.0,0.0,
+Childrens,Is Momma a Movie Start,North,West,true,11/11/2016,0,0.0,0.0,
+Childrens,How to Slay,BlueIvy,Carter,true,11/11/2016,0,0.0,0.0,
+Childrens,I am Not My Hair,BlueIvy,Carter,false,11/11/2016,0,0.0,0.0,
+Childrens,Why My Mama Do That,RobbyBob,Swanson, false,11/11/2016,0,0.0,0.0,
+Childrens,My First Shotgun,RobbyBob,Swanson,false,11/11/2016,0,0.0,0.0,
+Childrens,Them Dishes Ain't GonnaWash Themselves,RobbyBob,Swanson,false,11/11/2016,0,0.0,0.0,
+Childrens,How to Read for Points,Jay,Watts, false,11/11/2016,0,0.0,0.0,
+Fiction,Bands Madeth Thouest Dance,Othello,Juicy, false,11/11/2016,0,0.0,0.0,
+Fiction,Thouest Whench Is Mine,Othello,Juicy,true,11/11/2016,0,0.0,0.0,
+Fiction,My Presidency,Donald,Trump,false,11/11/2016,0,0.0,0.0,
+Fiction,I am a Honest American,Donald,Trump,false,11/11/2016,0,0.0,0.0,
+Fiction,Knucketh if Thouest Bucketh,Othello,Juicy,false,11/11/2016,0,0.0,0.0,
+Fiction,Space Amazonians,Neva,Salty,false,11/11/2016,0,0.0,0.0,
+Fiction,He Took My Seasoning with my Heart,Neva,Salty,false,11/11/2016,0,0.0,0.0,
+Fiction,The Thirst that Consumed Me,Neva,Salty,false,11/11/2016,0,0.0,0.0,
+Fiction,The Bluest Eye,Toni,Morisson,false,11/11/2016,0,0.0,0.0,
+Fiction,Home,Toni,Morisson,true,11/11/2016,0,0.0,0.0,
+Fiction,Mean Girls Do Better,Momo,Yanze,false,11/11/2016,0,0.0,0.0,
+Fiction,I be Clachet,Jay,Watt,true,11/11/2016,0,0.0,0.0,
+Fiction,Serious Tome,Pretentious,Writer,false,11/11/2016,0,0.0,0.0,
+Fiction,The Bell Jar,Slyvia,Plath,true,11/11/2016,0,0.0,0.0,
+Fiction,The Runaway Jury,John,Grisham,false,11/11/2016,0,0.0,0.0,
+Fiction,Run hard not fast,Bill,Spencer,true,11/11/2016,0,0.0,0.0,
+Nonfiction,I went to Asia and didnt tell nobody,Calvin,Harris,false,11/11/2016,0,0.0,0.0,
+Nonfiction,True Confessions of an Uber Driver,Alex,Marks,true,11/11/2016,0,0.0,0.0,
+Nonfiction,How to be ghetto without trying too hard,Momo,Yanze,true,11/11/2016,0,0.0,0.0,
+Nonfiction,The ABCs of Coding,Kamel,ItssoEasy,false,11/11/2016,0,0.0,0.0,
+Nonfiction,How to Get Away With Murder in TV,Shonda,Rhimes,true,11/11/2016,0,0.0,0.0,
+Nonfiction,Im the most famous person in the world really tho,Kanye,West,false,11/11/2016,0,0.0,0.0,
+Nonfiction,My parents screwed me up really tho,North,West,true,11/11/2016,0,0.0,0.0,
+Nonfiction,Its not easy being breezy,Kim,Driscoll,false,11/11/2016,0,0.0,0.0,
+Childrens,Green Eggs and Hame,Dr,Seuss,true,11/11/2016,0,0.0,0.0,
+Childrens,Speak when Spoken to,Momo,Yanze,false,11/11/2016,0,0.0,0.0,
+Childrens,Cow Moon Duck,Kamel,ItssoEasy,true,11/11/2016,0,0.0,0.0,
+Childrens,Where the Wild things are,Maurice,Sendak,false,11/11/2016,0,0.0,0.0,
+Childrens,Matilda,Roald,Dahl,true,11/11/2016,0,0.0,0.0,
+Childrens,The Cat in the Hat,Dr,Seuss,false,11/11/2016,0,0.0,0.0,
+Childrens,Its not easy being green,Kermit,TheFrog,true,11/11/2016,0,0.0,0.0,
+Childrens,Ameilia Bedelia,Peggy,Parish,true,11/11/2016,0,0.0,0.0,
+Reference,CodeSchool for Dummies,Momo,Yanze,false,11/11/2016,0,0.0,0.0,
+Reference,Politics in the age of Rebellion,Barack,Obama,true,11/11/2016,0,0.0,0.0,
+Reference,How to go to Asia without telling nobody,Calvin,Harris,true,11/11/2016,0,0.0,0.0,
+Reference,Codein and Commas: A how to guide,Future,Rapper,false,11/11/2016,0,0.0,0.0,
+Reference,MLA Writing Guide,Important,Writer,true,11/11/2016,0,0.0,0.0,
+Reference,Business Law,Important,Lawyer,false,11/11/2016,0,0.0,0.0,
+Reference,Gardening A to Z,Saresa,Smith,true,11/11/2016,0,0.0,0.0,
+Reference,How to be good at Everything,James,Kelly,false,11/11/2016,0,0.0,0.0,
