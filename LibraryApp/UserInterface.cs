@@ -54,11 +54,15 @@ namespace LibraryApp
                     break;
 
                 case 3:
-                    for (int i = 0; i < Library.TheLibrary.AllUsers.Count; i++)
-                                {
-                                    Console.WriteLine(Library.TheLibrary.AllUsers[i]);
-                                }
-                        break;
+                    if (thisUser.PowerUser == true)
+                    {
+                        for (int i = 0; i < Library.TheLibrary.AllUsers.Count; i++)
+                        {
+                            Console.WriteLine(Library.TheLibrary.AllUsers[i]);
+                        }
+                    }
+                    else { Console.WriteLine("You do not have access to this view.");}
+                    break;
                 case 4:
                     GetAccountOverview();
                     break;
@@ -292,18 +296,19 @@ namespace LibraryApp
                         break;
                     case "2":
                         Console.WriteLine("New User Registration: ");
+                        Console.Write("First Name: ");
+                        string fn = Console.ReadLine();
+                        Console.Write("Last Name: ");
+                        string ln = Console.ReadLine();
+                        Library.TheLibrary.AllUsers.Add(new User(email, fn, ln, false, null, 0));
+                        Console.WriteLine("Added: ");
                         break;
                     default:
                         Console.WriteLine("Invalid selection. Please try again.");
-                        return;
+                        WelcomeScreen();
                         break;
                 }
-                Console.Write("First Name: ");
-                string fn = Console.ReadLine();
-                Console.Write("Last Name: ");
-                string ln = Console.ReadLine();
-                Library.TheLibrary.AllUsers.Add(new User(email, fn, ln, false, null, 0));
-                Console.WriteLine("Added: ");
+
             }
             else if (thisUser != null)
             {
