@@ -17,6 +17,8 @@ namespace LibraryApp
         public static void RunGUI()
         {
             //Todo: Start at welcome screen and progress to main menu.
+            //WelcomeScreen();
+            
             MainMenu();
         }
 

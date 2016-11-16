@@ -47,6 +47,7 @@ namespace LibraryApp
                 Library.TheLibrary.AllUsers.Add(new User(rc[0], rc[1], rc[2], bool.Parse(rc[3]), rentedBook, float.Parse(rc[5]))); //trouble with rc[4] because the data type is "book".  what would be the best way to pass the object?
             }
 
+            //Read Record File
             List<Record> Records = new List<Record>();
             string recordFile = "../../checkoutRecords.txt";
             StreamReader recordReader = new StreamReader(recordFile);
