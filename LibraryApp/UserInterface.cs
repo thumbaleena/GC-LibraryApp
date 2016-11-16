@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,11 +11,15 @@ namespace LibraryApp
     {
         static string input;
         static int menuChoice;
+        static string email; //new
+        static User thisUser;
         static string Welcome_Header = "Welcome to the library application for " + "";
 
         public static void RunGUI()
         {
             //Todo: Start at welcome screen and progress to main menu.
+            //WelcomeScreen();
+
             MainMenu();
         }
 
@@ -22,13 +27,17 @@ namespace LibraryApp
       
         public static void MainMenu()
         {
+            WelcomeScreen(); //new
             Console.WriteLine("Welcome to the Library.  What would you like to do?");
             Console.WriteLine("1. View all books available");
             Console.WriteLine("2. Search books");
             Console.WriteLine("3. View all users");
+            Console.WriteLine("4. Account Overview");
+            Console.WriteLine("5. Check book in");
+            Console.WriteLine("6. Check book out");
             Console.WriteLine();
             //Console.Write();
-            GetInput(out menuChoice,"Enter a number selection: ");
+            GetInput(out menuChoice, "Enter a number selection: ");
 
             switch (menuChoice)
             {
@@ -48,7 +57,14 @@ namespace LibraryApp
                                     Console.WriteLine(Library.TheLibrary.AllUsers[i]);
                                 }
                         break;
-
+                case 4:
+                    GetAccountOverview();
+                    break;
+                case 5:
+                    CheckInMenu();
+                    break;
+                case 6:
+                    break;
                 //added new exception so we don't mistake unwritten code for buggy code.
                 default:
                     throw new NotImplementedException();
@@ -56,29 +72,93 @@ namespace LibraryApp
             }
         }
 
+        private static void GetAccountOverview()
+        {
+            Console.WriteLine("Books Checked Out To You:");
+            Console.WriteLine("Book:".PadRight(20) + "Due Date:");
+            foreach (Record record in Library.TheLibrary.AllRecords)
+            {
+                if (record.Book.CheckedOutTo.Contains(email))
+                {
+                    Console.WriteLine(record.Book.Title.PadRight(20) + record.DueDate);
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Account Balance: ");
+            float accountSum = 0;
+            foreach (Record record in Library.TheLibrary.AllRecords)
+            {
+                if (record.User.Email == email && record.CurrentLateFee >= .01)
+                {
+                    Console.WriteLine("Book: " + record.Book.Title + ", Overdue fees: " + record.CurrentLateFee);
+                    accountSum = record.CurrentLateFee + accountSum;
+                }
+            }
+            Console.WriteLine("Account Balance: " + accountSum);
+            Console.WriteLine();
+        }
+
 
         //TODO
         public static void CheckInMenu()
-        {  
-           
-            throw new NotImplementedException("Check in menu has not been created.");
+        {
+            string input;
+            Book searchedBook;
+            UserInterface.GetInput(out input, "Search titles for: ");
+            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (Book bk) { return bk.Title.Contains(input); });
+            if (searchedBook != null)  //there could be a lot of different things to validate here - is it checked out to the current user? etc.
+            {
+                Console.WriteLine("Book found. Check in?");
+            }
+            searchedBook.CheckedOutTo = "";
+            searchedBook.Status = false;
+            Record searchedRecord;
+            searchedRecord =
+                Library.TheLibrary.AllRecords.FindLast(
+                    delegate (Record r) { return (r.Book.Title.Contains(input)); });
+            searchedRecord.CheckInDate = DateTime.Today;
+            searchedRecord.ActiveStatus = false;
+            Console.WriteLine(searchedRecord);
+            //Console.WriteLine("Please enter the title of your book")
+            //Getbook from user
+            //Code to check borrowdate and current date -
+            //Code to check for fees owed-Calculateoverdue method
+
+
+            //PAYFEES METHODif no fees owed user may search for books or exit program
+            //or else fees owed and amount displayed Please pay this amount before checking out a book
+            //Please proceed to payment screen to bring your account current
+            //throw new NotImplementedException("Check in menu has not been created.");
         }
         public static void CheckOutMenu(Book bookToAdd, User userToAdd)
         {
-            Console.Write("Would you like to checkout? ");
-            bool myY;
+            string input;
+            Book searchedBook;
+            UserInterface.GetInput(out input, "Search titles for: ");
+            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (Book bk) { return bk.Title.Contains(input); });
+            if (searchedBook != null)  //there could be a lot of different things to validate here - is it checked out to the current user? etc.
+            {
+                Console.WriteLine("Book found. Check out?");
+            }
+            searchedBook.CheckedOutTo = email;
+            searchedBook.Status = true;
+
+            FileIO.WriteRecordToFile(new Record(thisUser, searchedBook));
+            FileIO.WriteBookToFile(searchedBook);
+         /*   bool myY;
             GetInput(out myY);
             if (myY)
             {
                 bookToAdd.Status = false;
                 userToAdd.RentedBook = bookToAdd;
+                /* all records.add(new Record(user.Book));
 
 
-                
+
             }
 
 
-            throw new NotImplementedException("Check out menu has not been created.");
+            throw new NotImplementedException("Check out menu has not been created."); */
         }
         public static void AddOrRemoveBook(bool isSuperUser)
         {
@@ -161,19 +241,37 @@ namespace LibraryApp
 
             return searchedBook;
         }
-        public static User SearchForUser(string UserToSearch)
+        public static User SearchForUser(string UserEmailToSearch)
         {
             User searchedUser;
 
-            searchedUser = Library.TheLibrary.AllUsers.Find(delegate (User user) { return user.Email.Contains(UserToSearch); });
+            searchedUser = Library.TheLibrary.AllUsers.Find(delegate (User user) { return user.Email.Contains(UserEmailToSearch); });
 
             return searchedUser;
         }
 
-        public static void WelcomeScreen()
+        public static void WelcomeScreen() //new
         {
 
             Console.WriteLine(Welcome_Header);
+            Console.Write("Please enter your email address: ");
+            email = Console.ReadLine();
+            Console.WriteLine();
+            thisUser = SearchForUser(email);
+            if (thisUser == null)
+            {
+                Console.WriteLine("User does not exist.  Please register.");
+                Console.Write("First Name: ");
+                string fn = Console.ReadLine();
+                Console.Write("Last Name: ");
+                string ln = Console.ReadLine();
+                Library.TheLibrary.AllUsers.Add(new User(email, fn, ln, false, null, 0));
+                Console.WriteLine("Added: ");
+            }
+            else if (thisUser != null)
+            {
+                Console.WriteLine("User Profile Found.\n");
+            }
         }
 
         //To Do: Validation
