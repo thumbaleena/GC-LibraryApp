@@ -12,6 +12,7 @@ namespace LibraryApp
         static string input;
         static int menuChoice;
         static string email; //new
+        static User thisUser;
         static string Welcome_Header = "Welcome to the library application for " + "";
 
         public static void RunGUI()
@@ -146,6 +147,9 @@ namespace LibraryApp
             }
             searchedBook.CheckedOutTo = email;
             searchedBook.Status = true;
+
+            FileIO.WriteRecordToFile(new Record(thisUser, searchedBook));
+            FileIO.WriteBookToFile(searchedBook);
          /*   bool myY;
             GetInput(out myY);
             if (myY)
@@ -242,11 +246,11 @@ namespace LibraryApp
 
             return searchedBook;
         }
-        public static User SearchForUser(string UserToSearch)
+        public static User SearchForUser(string UserEmailToSearch)
         {
             User searchedUser;
 
-            searchedUser = Library.TheLibrary.AllUsers.Find(delegate (User user) { return user.Email.Contains(UserToSearch); });
+            searchedUser = Library.TheLibrary.AllUsers.Find(delegate (User user) { return user.Email.Contains(UserEmailToSearch); });
 
             return searchedUser;
         }
@@ -258,8 +262,8 @@ namespace LibraryApp
             Console.Write("Please enter your email address: ");
             email = Console.ReadLine();
             Console.WriteLine();
-            User currentUser = SearchForUser(email);
-            if (currentUser == null)
+            thisUser = SearchForUser(email);
+            if (thisUser == null)
             {
                 Console.WriteLine("User does not exist.  Please register.");
                 Console.Write("First Name: ");
@@ -269,7 +273,7 @@ namespace LibraryApp
                 Library.TheLibrary.AllUsers.Add(new User(email, fn, ln, false, null, 0));
                 Console.WriteLine("Added: ");
             }
-            else if (currentUser != null)
+            else if (thisUser != null)
             {
                 Console.WriteLine("User Profile Found.\n");
             }

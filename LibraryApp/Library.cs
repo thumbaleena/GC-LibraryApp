@@ -132,8 +132,8 @@ namespace LibraryApp
 
         }
 
-        
-        public int SearchForBook(string BookTitleToSearch)
+
+        public int SearchForBookIndex(string BookTitleToSearch)
         {
             for (int i = 0; i < AllBooks.Count; i++)
             {
@@ -145,7 +145,7 @@ namespace LibraryApp
             //indicates to create a new line
             return -1;
         }
-        public int SearchForUser(string UserEmailToSearch)
+        public int SearchForUserIndex(string UserEmailToSearch)
         {
             for (int i = 0; i < AllBooks.Count; i++)
             {

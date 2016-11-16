@@ -93,7 +93,7 @@ namespace LibraryApp
         //writing a book overwrites a book if there is one with the same title already in it.
         public static void WriteBookToFile(Book book)
         {
-            int lineNumber = Library.TheLibrary.SearchForBook(book.Title);
+            int lineNumber = Library.TheLibrary.SearchForBookIndex(book.Title);
             if (lineNumber == -1)
             {
                 Library.TheLibrary.AllBooks.Add(book);
@@ -112,7 +112,7 @@ namespace LibraryApp
         }
         public static void WriteUserToFile(User user)
         {
-            int lineNumber = Library.TheLibrary.SearchForUser(user.Email);
+            int lineNumber = Library.TheLibrary.SearchForUserIndex(user.Email);
             if (lineNumber == -1)
             {
                 Library.TheLibrary.AllUsers.Add(user);
