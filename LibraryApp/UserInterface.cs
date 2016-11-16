@@ -185,7 +185,15 @@ namespace LibraryApp
                 #region SearchingTitles
                 case 1:
                     //searchedBooks = SearchForTitle();
-                    searchedBook = SearchForTitle();
+                    // searchedBook = SearchForTitle();
+                    GetInput(out input, "Search titles for: ");
+                    searchedBooks = Library.TheLibrary.AllBooks.FindAll(delegate (Book bk) { return bk.Title.Contains(input); });
+                    for (int i = 0; i < searchedBooks.Count; i++)
+                    {
+                        Console.WriteLine(searchedBooks[i]);
+                    }             
+                    Console.WriteLine();
+                    MainMenu();       
                     break;
                 #endregion
 
@@ -197,6 +205,8 @@ namespace LibraryApp
                     {
                         Console.WriteLine(searchedBooks[i]);
                     }
+                    Console.WriteLine();
+                    MainMenu();
                     break;
                 #endregion
 
@@ -208,6 +218,8 @@ namespace LibraryApp
                     {
                         Console.WriteLine(searchedBooks[i]);
                     }
+                    Console.WriteLine();
+                    MainMenu();
                     break;
                 #endregion
 
@@ -219,6 +231,8 @@ namespace LibraryApp
                     {
                         Console.WriteLine(searchedBooks[i]);
                     }
+                    Console.WriteLine();
+                    MainMenu();
                     break;
                 #endregion
 
