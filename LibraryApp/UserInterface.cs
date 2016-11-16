@@ -265,7 +265,25 @@ namespace LibraryApp
             thisUser = SearchForUser(email);
             if (thisUser == null)
             {
-                Console.WriteLine("User does not exist.  Please register.");
+                Console.WriteLine("User does not exist.  Options: \n1. Try again \n2. Register new user");
+                Console.Write("Enter your selection: ");
+                string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "1":
+                        Console.Write("Please enter your email address: ");
+                        email = Console.ReadLine();
+                        Console.WriteLine();
+                        thisUser = SearchForUser(email);
+                        break;
+                    case "2":
+                        Console.WriteLine("New User Registration: ");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid selection. Please try again.");
+                        return;
+                        break;
+                }
                 Console.Write("First Name: ");
                 string fn = Console.ReadLine();
                 Console.Write("Last Name: ");
