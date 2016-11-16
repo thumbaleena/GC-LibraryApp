@@ -62,44 +62,10 @@ namespace LibraryApp
                                 }
                         break;
                 case 4:
-                    Console.WriteLine("Books Checked Out To You:");
-                    Console.WriteLine("Book:".PadRight(20) + "Due Date:");
-                    foreach (Record record in Library.TheLibrary.AllRecords)
-                    {
-
-                        if (record.Book.CheckedOutTo.Contains(email))
-                        {
-                            Console.WriteLine(record.Book.Title.PadRight(20) + record.DueDate);
-                        }
-                    }
-                    Console.WriteLine();
-                    Console.WriteLine("Account Balance: ");
-                    float accountSum = 0;
-                    foreach (Record record in Library.TheLibrary.AllRecords)
-                    {
-                        if (record.User.Email == email && record.CurrentLateFee >= .01)
-                        {
-                            Console.WriteLine("Book: " + record.Book.Title + ", Overdue fees: " + record.CurrentLateFee);
-                            accountSum = record.CurrentLateFee + accountSum;
-                        }
-                    }
-                    Console.WriteLine("Account Balance: " + accountSum);
-                    Console.WriteLine();
+                    GetAccountOverview();
                     break;
                 case 5:
-                    string input;
-                    Book searchedBook;
-                    UserInterface.GetInput(out input, "Search titles for: ");
-                    searchedBook = Library.TheLibrary.AllBooks.Find(delegate (Book bk) { return bk.Title.Contains(input); });
-                    searchedBook.CheckedOutTo = "";
-                    searchedBook.Status = false;
-                    Record searchedRecord;
-                    searchedRecord =
-                        Library.TheLibrary.AllRecords.FindLast(
-                            delegate(Record r) { return (r.Book.Title.Contains(input)); });
-                    searchedRecord.CheckInDate = DateTime.Today;
-                    searchedRecord.ActiveStatus = false;
-                    Console.WriteLine(searchedRecord);
+                    CheckInMenu();
                     break;
                 //added new exception so we don't mistake unwritten code for buggy code.
                 default:
@@ -108,10 +74,53 @@ namespace LibraryApp
             }
         }
 
+        private static void GetAccountOverview()
+        {
+            Console.WriteLine("Books Checked Out To You:");
+            Console.WriteLine("Book:".PadRight(20) + "Due Date:");
+            foreach (Record record in Library.TheLibrary.AllRecords)
+            {
+                if (record.Book.CheckedOutTo.Contains(email))
+                {
+                    Console.WriteLine(record.Book.Title.PadRight(20) + record.DueDate);
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Account Balance: ");
+            float accountSum = 0;
+            foreach (Record record in Library.TheLibrary.AllRecords)
+            {
+                if (record.User.Email == email && record.CurrentLateFee >= .01)
+                {
+                    Console.WriteLine("Book: " + record.Book.Title + ", Overdue fees: " + record.CurrentLateFee);
+                    accountSum = record.CurrentLateFee + accountSum;
+                }
+            }
+            Console.WriteLine("Account Balance: " + accountSum);
+            Console.WriteLine();
+        }
+
 
         //TODO
         public static void CheckInMenu()
-        {  
+        {
+            string input;
+            Book searchedBook;
+            UserInterface.GetInput(out input, "Search titles for: ");
+            searchedBook = Library.TheLibrary.AllBooks.Find(delegate (Book bk) { return bk.Title.Contains(input); });
+            if (searchedBook != null)  //there could be a lot of different things to validate here - is it checked out to the current user? etc.
+            {
+                Console.WriteLine("Book found. Check in?");
+            }
+            searchedBook.CheckedOutTo = "";
+            searchedBook.Status = false;
+            Record searchedRecord;
+            searchedRecord =
+                Library.TheLibrary.AllRecords.FindLast(
+                    delegate (Record r) { return (r.Book.Title.Contains(input)); });
+            searchedRecord.CheckInDate = DateTime.Today;
+            searchedRecord.ActiveStatus = false;
+            Console.WriteLine(searchedRecord);
             //Console.WriteLine("Please enter the title of your book")
             //Getbook from user
             //Code to check borrowdate and current date -
@@ -121,7 +130,7 @@ namespace LibraryApp
             //PAYFEES METHODif no fees owed user may search for books or exit program
             //or else fees owed and amount displayed Please pay this amount before checking out a book
             //Please proceed to payment screen to bring your account current
-            throw new NotImplementedException("Check in menu has not been created.");
+            //throw new NotImplementedException("Check in menu has not been created.");
         }
         public static void CheckOutMenu(Book bookToAdd, User userToAdd)
         {
