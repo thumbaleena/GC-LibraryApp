@@ -17,9 +17,10 @@ namespace LibraryApp
         private int daysOverdue;
         private float bookValue;
         private float currentLateFee;
+        private string checkedOutTo;
         
 
-        public Book(string category, string title, string authorFirst, string authorLast, bool status, DateTime dueDate, int daysOverdue, float bookValue, float currentLateFee)
+        public Book(string category, string title, string authorFirst, string authorLast, bool status, DateTime dueDate, int daysOverdue, float bookValue, float currentLateFee, string checkedOutTo)
         {
             this.title = title;
             this.status = status;
@@ -30,6 +31,7 @@ namespace LibraryApp
             this.daysOverdue = DaysOverdue;
             this.bookValue = bookValue;
             this.currentLateFee = currentLateFee;
+            this.checkedOutTo = checkedOutTo;
         }
 
         public string Title
@@ -142,7 +144,20 @@ namespace LibraryApp
 
         }
 
-//only use this in the Check Out method
+        public string CheckedOutTo
+        {
+            get
+            {
+                return checkedOutTo;
+            }
+
+            set
+            {
+                checkedOutTo = value;
+            }
+        }
+
+        //only use this in the Check Out method
         public DateTime SetDueDate()
         {            
             return DateTime.Today.AddDays(Library.TheLibrary.DefaultCheckoutTime.TotalDays);

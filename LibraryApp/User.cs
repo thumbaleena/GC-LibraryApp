@@ -33,11 +33,6 @@ namespace LibraryApp
             {
                 return email;
             }
-
-            set
-            {
-                email = value;
-            }
         }
         public string LastName
         {

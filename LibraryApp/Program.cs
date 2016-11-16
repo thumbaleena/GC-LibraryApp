@@ -28,7 +28,7 @@ namespace LibraryApp
                 var rc = record.Split(',');
 
                 Library.TheLibrary.AllBooks.Add(new Book(rc[0], rc[1], rc[2], rc[3], bool.Parse(rc[4]), DateTime.Parse(rc[5]),
-                    int.Parse(rc[6]), float.Parse(rc[7]), float.Parse(rc[8])));
+                    int.Parse(rc[6]), float.Parse(rc[7]), float.Parse(rc[8]),rc[9])); //
 
             }
 
@@ -43,8 +43,7 @@ namespace LibraryApp
             foreach (var user in userRecords)
             {
                 var rc = user.Split(',');
-                Book rentedBook = UserInterface.SearchForTitle(rc[4]);
-                Library.TheLibrary.AllUsers.Add(new User(rc[0], rc[1], rc[2], bool.Parse(rc[3]), rentedBook, float.Parse(rc[5]))); //trouble with rc[4] because the data type is "book".  what would be the best way to pass the object?
+                Library.TheLibrary.AllUsers.Add(new User(rc[0], rc[1], rc[2], bool.Parse(rc[3]), UserInterface.SearchForTitle(rc[1]), float.Parse(rc[5]))); //trouble with rc[4] because the data type is "book".  what would be the best way to pass the object?
             }
 
             List<Record> Records = new List<Record>();
@@ -57,9 +56,9 @@ namespace LibraryApp
             foreach (var record in recordRecords)
             {
                 var rc = record.Split(',');
-                Book rentedBook = UserInterface.SearchForTitle(rc[1]);
-                User currentUser = UserInterface.SearchForUser(rc[0]);
-                Library.TheLibrary.AllRecords.Add(new Record(currentUser, rentedBook, Convert.ToDateTime(rc[2]), Convert.ToDateTime(rc[3]), int.Parse(rc[4]), float.Parse(rc[5]))); 
+                Book searchedBook;
+                searchedBook = Library.TheLibrary.AllBooks.Find(delegate (Book bk) { return bk.Title.Contains(rc[1]); });
+                Library.TheLibrary.AllRecords.Add(new Record(UserInterface.SearchForUser(rc[0]), searchedBook, Convert.ToDateTime(rc[2]), Convert.ToDateTime(rc[3]), int.Parse(rc[4]), float.Parse(rc[5]))); 
             }
 
 

@@ -9,15 +9,16 @@ namespace LibraryApp
     class Record
     {
         private DateTime dueDate;
+        private DateTime checkOutDate;
         private int daysOverdue;
         private float currentLateFee;
         private User currentUser;
         private Book currentBook;
-       public Record(User currentUser, Book currentBook, DateTime checkOutDate, DateTime dueDate, int daysOverdue,
-            float currentLateFee)
-        {
-            
-        }
+       public Record(User currentUser, Book currentBook)
+       {
+           this.currentUser = currentUser;
+           this.currentBook = currentBook;
+       }
 
         public User User
         {
@@ -39,10 +40,10 @@ namespace LibraryApp
 
         public DateTime CheckOutDate
         {
-            get { return CheckOutDate; }
+            get { return checkOutDate; }
             set
             {
-                CheckOutDate = value;
+                checkOutDate = value;
             }
         }
         public DateTime DueDate
@@ -57,7 +58,6 @@ namespace LibraryApp
                 dueDate = value;
             }
         }
-
         public int DaysOverdue
         {
             get { return daysOverdue; }
@@ -97,7 +97,7 @@ namespace LibraryApp
 
         public override string ToString()
         {
-            return User +", "+Book+", "+CheckOutDate;
+            return Book+", "+CheckOutDate;
         }
     }
 }
