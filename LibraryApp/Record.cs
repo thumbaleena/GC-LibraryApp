@@ -14,10 +14,15 @@ namespace LibraryApp
         private float currentLateFee;
         private User currentUser;
         private Book currentBook;
-       public Record(User currentUser, Book currentBook)
+       public Record(User currentUser, Book currentBook, DateTime checkOutDate, DateTime dueDate, int daysOverdue,
+            float currentLateFee)
        {
            this.currentUser = currentUser;
            this.currentBook = currentBook;
+           this.checkOutDate = checkOutDate;
+           this.dueDate = dueDate;
+           this.daysOverdue = daysOverdue;
+           this.currentLateFee = currentLateFee;
        }
 
         public User User
@@ -58,6 +63,7 @@ namespace LibraryApp
                 dueDate = value;
             }
         }
+
         public int DaysOverdue
         {
             get { return daysOverdue; }
