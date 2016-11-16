@@ -18,7 +18,7 @@ namespace LibraryApp
         {
             //Todo: Start at welcome screen and progress to main menu.
             //WelcomeScreen();
-            
+
             MainMenu();
         }
 
@@ -39,7 +39,7 @@ namespace LibraryApp
             Console.WriteLine("4. Account Overview");
             Console.WriteLine();
             //Console.Write();
-            GetInput(out menuChoice,"Enter a number selection: ");
+            GetInput(out menuChoice, "Enter a number selection: ");
 
             switch (menuChoice)
             {
@@ -55,32 +55,33 @@ namespace LibraryApp
 
                 case 3:
                     for (int i = 0; i < Library.TheLibrary.AllUsers.Count; i++)
-                                {
-                                    Console.WriteLine(Library.TheLibrary.AllUsers[i]);
-                                }
-                        break;
+                    {
+                        Console.WriteLine(Library.TheLibrary.AllUsers[i]);
+                    }
+                    break;
                 case 4:
                     Console.WriteLine("Books Checked Out To You:");
-                                       foreach (Record record in Library.TheLibrary.AllRecords)
-                                       {
-                                           if (record.Book.CheckedOutTo.Contains(email))
-                                           {
-                                               string bookTitle = record.Book.Title;
-                                               Console.WriteLine(bookTitle);
-                                           }
-                                           else
-                                           {
-                                              Console.WriteLine("You do not have any books checked out at this time.");
-                                           }
-                                       }
-                                       Console.WriteLine("Account Balance: ");
-                                       foreach (Record record in Library.TheLibrary.AllRecords)
-                                       {
-                                           if (record.User.Email.Contains(email) && record.CurrentLateFee >= 0)
-                                           {
-                                               Console.WriteLine(record);
-                                           }
-                                       } 
+                    foreach (Record record in Library.TheLibrary.AllRecords)
+                    {
+
+                        if (record.Book.CheckedOutTo.Contains(email))
+                        {
+                            string bookTitle = record.Book.Title;
+                            Console.WriteLine(bookTitle);
+                        }
+                        else
+                        {
+                            Console.WriteLine("You do not have any books checked out at this time.");
+                        }
+                    }
+                    Console.WriteLine("Account Balance: ");
+                    foreach (Record record in Library.TheLibrary.AllRecords)
+                    {
+                        if (record.User.Email.Contains(email) && record.CurrentLateFee >= 0)
+                        {
+                            Console.WriteLine(record);
+                        }
+                    }
                     break;
                 //added new exception so we don't mistake unwritten code for buggy code.
                 default:
@@ -92,7 +93,7 @@ namespace LibraryApp
 
         //TODO
         public static void CheckInMenu()
-        {  
+        {
             throw new NotImplementedException("Check in menu has not been created.");
         }
         public static void CheckOutMenu(Book bookToAdd, User userToAdd)
@@ -270,7 +271,7 @@ namespace LibraryApp
             if (input == "y")
             {
                 myY = true;
-             
+
             }
             else
             {
