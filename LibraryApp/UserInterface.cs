@@ -18,7 +18,7 @@ namespace LibraryApp
         public static void RunGUI()
         {
             //Todo: Start at welcome screen and progress to main menu.
-            //WelcomeScreen();
+            WelcomeScreen();
 
             MainMenu();
         }
@@ -27,7 +27,6 @@ namespace LibraryApp
       
         public static void MainMenu()
         {
-            WelcomeScreen(); //new
             Console.WriteLine("Welcome to the Library.  What would you like to do?");
             Console.WriteLine("1. View all books available");
             Console.WriteLine("2. Search books");
@@ -35,6 +34,7 @@ namespace LibraryApp
             Console.WriteLine("4. Account Overview");
             Console.WriteLine("5. Check book in");
             Console.WriteLine("6. Check book out");
+            Console.WriteLine("7. Exit");
             Console.WriteLine();
             //Console.Write();
             GetInput(out menuChoice, "Enter a number selection: ");
@@ -46,6 +46,8 @@ namespace LibraryApp
                     {
                         Console.WriteLine(bk.ToString());
                     }
+                    Console.WriteLine("\n");
+                    MainMenu();
                     break;
                 case 2:
                     SearchMenu();
@@ -64,6 +66,9 @@ namespace LibraryApp
                     CheckInMenu();
                     break;
                 case 6:
+                    break;
+                case 7:
+                    Environment.Exit(0);
                     break;
                 //added new exception so we don't mistake unwritten code for buggy code.
                 default:
