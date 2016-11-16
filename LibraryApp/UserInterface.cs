@@ -11,7 +11,7 @@ namespace LibraryApp
     {
         static string input;
         static int menuChoice;
-        private static string email; //new
+        static string email; //new
         static string Welcome_Header = "Welcome to the library application for " + "";
 
         public static void RunGUI()
@@ -60,13 +60,27 @@ namespace LibraryApp
                                 }
                         break;
                 case 4:
-                    foreach (Record record in Library.TheLibrary.AllRecords)
-                    {
-                        if (record.User.Email.Contains(email) && (record.Book.Status==true || record.CurrentLateFee >= 0))
-                        {
-                            
-                        }
-                    }
+                    Console.WriteLine("Books Checked Out To You:");
+                                       foreach (Record record in Library.TheLibrary.AllRecords)
+                                       {
+                                           if (record.Book.CheckedOutTo.Contains(email))
+                                           {
+                                               string bookTitle = record.Book.Title;
+                                               Console.WriteLine(bookTitle);
+                                           }
+                                           else
+                                           {
+                                              Console.WriteLine("You do not have any books checked out at this time.");
+                                           }
+                                       }
+                                       Console.WriteLine("Account Balance: ");
+                                       foreach (Record record in Library.TheLibrary.AllRecords)
+                                       {
+                                           if (record.User.Email.Contains(email) && record.CurrentLateFee >= 0)
+                                           {
+                                               Console.WriteLine(record);
+                                           }
+                                       } 
                     break;
                 //added new exception so we don't mistake unwritten code for buggy code.
                 default:
@@ -176,6 +190,13 @@ namespace LibraryApp
 
             return searchedBook;
         }
+        public static User SearchForUser()
+        {
+            User searchedUser;
+            searchedUser = Library.TheLibrary.AllUsers.Find(delegate (User user) { return user.Email.Contains(email); });
+
+            return searchedUser;
+        }
         public static User SearchForUser(string UserToSearch)
         {
             User searchedUser;
@@ -190,7 +211,7 @@ namespace LibraryApp
 
             Console.WriteLine(Welcome_Header);
             Console.Write("Please enter your email address: ");
-            string email = Console.ReadLine();
+            email = Console.ReadLine();
             Console.WriteLine();
             User currentUser = SearchForUser(email);
             if (currentUser == null)
@@ -201,11 +222,11 @@ namespace LibraryApp
                 Console.Write("Last Name: ");
                 string ln = Console.ReadLine();
                 Library.TheLibrary.AllUsers.Add(new User(email, fn, ln, false, null, 0));
-                Console.WriteLine();
+                Console.WriteLine("Added: ");
             }
             else if (currentUser != null)
             {
-                Console.WriteLine("User Profile Found. Account Overview: \n");
+                Console.WriteLine("User Profile Found.\n");
             }
         }
 
