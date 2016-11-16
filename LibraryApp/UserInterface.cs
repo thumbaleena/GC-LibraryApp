@@ -55,33 +55,33 @@ namespace LibraryApp
 
                 case 3:
                     for (int i = 0; i < Library.TheLibrary.AllUsers.Count; i++)
-                                {
-                                    Console.WriteLine(Library.TheLibrary.AllUsers[i]);
-                                }
-                        break;
+                    {
+                        Console.WriteLine(Library.TheLibrary.AllUsers[i]);
+                    }
+                    break;
                 case 4:
                     Console.WriteLine("Books Checked Out To You:");
                     Console.WriteLine("Book:".PadRight(20) + "Due Date:");
-                                       foreach (Record record in Library.TheLibrary.AllRecords)
-                                       {
+                    foreach (Record record in Library.TheLibrary.AllRecords)
+                    {
 
-                                           if (record.Book.CheckedOutTo.Contains(email))
-                                           {
-                            Console.WriteLine(record.Book.Title.PadRight(20)+record.DueDate);
-                                           }
-                                           }
-                                       Console.WriteLine();
-                                       Console.WriteLine("Account Balance: ");
-                                        float accountSum = 0;
-                                       foreach (Record record in Library.TheLibrary.AllRecords)
-                                       {
-                                           if (record.User.Email == email && record.CurrentLateFee >= .01)
-                                           {
-                                               Console.WriteLine("Book: "+record.Book.Title+", Overdue fees: "+record.CurrentLateFee);
-                                               accountSum = record.CurrentLateFee + accountSum;
-                                           }
-                                       } 
-                                       Console.WriteLine("Account Balance: "+accountSum);
+                        if (record.Book.CheckedOutTo.Contains(email))
+                        {
+                            Console.WriteLine(record.Book.Title.PadRight(20) + record.DueDate);
+                        }
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("Account Balance: ");
+                    float accountSum = 0;
+                    foreach (Record record in Library.TheLibrary.AllRecords)
+                    {
+                        if (record.User.Email == email && record.CurrentLateFee >= .01)
+                        {
+                            Console.WriteLine("Book: " + record.Book.Title + ", Overdue fees: " + record.CurrentLateFee);
+                            accountSum = record.CurrentLateFee + accountSum;
+                        }
+                    }
+                    Console.WriteLine("Account Balance: " + accountSum);
                     Console.WriteLine();
                     break;
                 //added new exception so we don't mistake unwritten code for buggy code.
@@ -94,7 +94,7 @@ namespace LibraryApp
 
         //TODO
         public static void CheckInMenu()
-        {  
+        {
             throw new NotImplementedException("Check in menu has not been created.");
         }
         public static void CheckOutMenu(Book bookToAdd, User userToAdd)
@@ -272,7 +272,7 @@ namespace LibraryApp
             if (input == "y")
             {
                 myY = true;
-             
+
             }
             else
             {
