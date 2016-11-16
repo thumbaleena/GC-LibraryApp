@@ -89,5 +89,10 @@ namespace LibraryApp
             return FirstName + ", " + LastName + ", " + Email + ", " + TotalFees + ", " + PowerUser + "\n" +
                    RentedBook;//rented book has a Overidden ToString();
         }
+
+        public string ToFileFormat()
+        {
+            return Email + "," + FirstName + "," + LastName + "," + RentedBook + "," + TotalFees;
+        }
     }
 }

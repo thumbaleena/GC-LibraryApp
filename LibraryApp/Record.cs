@@ -143,5 +143,9 @@ namespace LibraryApp
         {
             return Book + ", Checked out on: " + CheckOutDate;
         }
+        public string ToFileFormat()
+        {
+            return User + "," + Book.Title + "," + DueDate.ToString() + "," + DaysOverdue + "," + CurrentLateFee;
+        }
     }
 }

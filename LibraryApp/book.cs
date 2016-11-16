@@ -179,6 +179,11 @@ namespace LibraryApp
             return Category + ", " + Title + ", " + AuthorFirst + ", " + AuthorLast + ", " + Status + ", " +
                    DueDate + ", " + DaysOverdue + ", "+ BookValue + ", " + CurrentLateFee;
         }
+        public string ToFileFormat()
+        {
+            return Category + "," + Title + "," + AuthorFirst + "," + AuthorLast + "," + Status + "," +
+                   DueDate + "," + DaysOverdue + "," + BookValue + "," + CurrentLateFee + "," + CheckedOutTo;
+        }
 
     }
 }

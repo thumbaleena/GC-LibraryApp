@@ -15,7 +15,7 @@ namespace LibraryApp
         private float overDueFeeByDay;
         private List<Book> allBooks;
         private List<User> allUsers;
-        public List<Record> allRecords;
+        private List<Record> allRecords;
         public static Library TheLibrary;
         public Library(string address, string nameOfLibrary, TimeSpan defaultCheckoutTime, float defaultFee, float overDueFeeByDay)
         {
@@ -130,6 +130,32 @@ namespace LibraryApp
                 allRecords = value;
             }
 
+        }
+
+        
+        public int SearchForBook(string BookTitleToSearch)
+        {
+            for (int i = 0; i < AllBooks.Count; i++)
+            {
+                if (AllBooks[i].Title == BookTitleToSearch)
+                {
+                    return i;
+                }
+            }
+            //indicates to create a new line
+            return -1;
+        }
+        public int SearchForUser(string UserEmailToSearch)
+        {
+            for (int i = 0; i < AllBooks.Count; i++)
+            {
+                if (AllUsers[i].Email == UserEmailToSearch)
+                {
+                    return i;
+                }
+            }
+            //indicates to create a new line
+            return -1;
         }
     }
 }

@@ -9,13 +9,15 @@ namespace LibraryApp
 {
     static class FileIO
     {
+        static string bookFile = "../../bookList.txt";
+        static string userFile = "../../userList.txt";
+        static string recordFile = "../../checkoutRecords.txt";
         public static void ReadAndInitializeBooks()
         {
-            string bookFile = "../../bookList.txt";
             StreamReader bookReader = new StreamReader(bookFile);
             string bookData = bookReader.ReadToEnd().TrimEnd();
             List<Book> results = new List<Book>();
-            var bookRecords = bookData.Split('\n');
+            List<string> bookRecords = bookData.Split('\n').ToList();
             bookReader.Close();
             foreach (var record in bookRecords)
             {
@@ -29,7 +31,6 @@ namespace LibraryApp
         public static void ReadAndInitializeUsers()
         {
             List<User> Users = new List<User>();
-            string userFile = "../../userList.txt";
             StreamReader userReader = new StreamReader(userFile);
             string userData = userReader.ReadToEnd().TrimEnd();
             List<User> userResults = new List<User>();
@@ -44,7 +45,6 @@ namespace LibraryApp
         public static void ReadAndInitializeRecords()
         {
             List<Record> Records = new List<Record>();
-            string recordFile = "../../checkoutRecords.txt";
             StreamReader recordReader = new StreamReader(recordFile);
             string recordData = recordReader.ReadToEnd().TrimEnd();
             List<Record> recordResults = new List<Record>();
@@ -59,20 +59,68 @@ namespace LibraryApp
             }
         }
 
-        public static void WriteLineToFile(Book book)
+        private static void WriteBookFile()
         {
+            StreamWriter sw = new StreamWriter(bookFile);
+
+            foreach(Book bk in Library.TheLibrary.AllBooks)
+            {
+                sw.WriteLine(bk.ToFileFormat());
+            }
+            sw.Close();
+        }
+        private static void WriteRecordFile()
+        {
+            StreamWriter sw = new StreamWriter(recordFile);
+
+            foreach (Record record in Library.TheLibrary.AllRecords)
+            {
+                sw.WriteLine(record.ToFileFormat());
+            }
+            sw.Close();
+        }
+        private static void WriteUserFile()
+        {
+            StreamWriter sw = new StreamWriter(userFile);
+
+            foreach (User user in Library.TheLibrary.AllUsers)
+            {
+                sw.WriteLine(user.ToFileFormat());
+            }
+            sw.Close();
+        }
+
+        //writing a book overwrites a book if there is one with the same title already in it.
+        public static void WriteBookToFile(Book book)
+        {
+            int lineNumber = Library.TheLibrary.SearchForBook(book.Title);
+            if (lineNumber == -1)
+            {
+                Library.TheLibrary.AllBooks.Add(book);
+            }
+            else if (lineNumber < -1) throw new FormatException("Line: " + lineNumber + "is not -1 or a positive number.");
+            else Library.TheLibrary.AllBooks[lineNumber] = book;
+
+            WriteBookFile();
             //Nonfiction,Just Google It,Doctor,Kamel,false,11/11/2016,0,0.0,0.0
-
+            
         }
-        public static void WriteLineToFile(User user)
+        public static void WriteRecordToFile(Record record)
         {
-            //Tomjk@acdmail.com,Tom,Krueger,false,Boss Moves,100
-
+            Library.TheLibrary.AllRecords.Add(record);
+            WriteRecordFile();
         }
-        public static void WriteLineToFile(Record record)
+        public static void WriteUserToFile(User user)
         {
-            //Tomjk@acdmail.com, My Life, 11/11/2016, 11/25/2016, 0, 0.0
+            int lineNumber = Library.TheLibrary.SearchForUser(user.Email);
+            if (lineNumber == -1)
+            {
+                Library.TheLibrary.AllUsers.Add(user);
+            }
+            else if (lineNumber < -1) throw new FormatException("Line: " + lineNumber + "is not -1 or a positive number.");
+            else Library.TheLibrary.AllUsers[lineNumber] = user;
 
+            WriteUserFile();
         }
     }
 }
