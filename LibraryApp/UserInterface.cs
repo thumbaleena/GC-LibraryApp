@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,14 +10,11 @@ namespace LibraryApp
     {
         static string input;
         static int menuChoice;
-        static string email; //new
         static string Welcome_Header = "Welcome to the library application for " + "";
 
         public static void RunGUI()
         {
             //Todo: Start at welcome screen and progress to main menu.
-            //WelcomeScreen();
-
             MainMenu();
         }
 
@@ -31,15 +27,13 @@ namespace LibraryApp
         //Later: Pay Fee
         public static void MainMenu()
         {
-            WelcomeScreen(); //new
             Console.WriteLine("Welcome to the Library.  What would you like to do?");
             Console.WriteLine("1. View all books available");
             Console.WriteLine("2. Search books");
             Console.WriteLine("3. View all users");
-            Console.WriteLine("4. Account Overview");
             Console.WriteLine();
             //Console.Write();
-            GetInput(out menuChoice, "Enter a number selection: ");
+            GetInput(out menuChoice,"Enter a number selection: ");
 
             switch (menuChoice)
             {
@@ -59,31 +53,7 @@ namespace LibraryApp
                                     Console.WriteLine(Library.TheLibrary.AllUsers[i]);
                                 }
                         break;
-                case 4:
-                    Console.WriteLine("Books Checked Out To You:");
-                    Console.WriteLine("Book:".PadRight(20) + "Due Date:");
-                                       foreach (Record record in Library.TheLibrary.AllRecords)
-                                       {
 
-                                           if (record.Book.CheckedOutTo.Contains(email))
-                                           {
-                            Console.WriteLine(record.Book.Title.PadRight(20)+record.DueDate);
-                                           }
-                                           }
-                                       Console.WriteLine();
-                                       Console.WriteLine("Account Balance: ");
-                                        float accountSum = 0;
-                                       foreach (Record record in Library.TheLibrary.AllRecords)
-                                       {
-                                           if (record.User.Email == email && record.CurrentLateFee >= .01)
-                                           {
-                                               Console.WriteLine("Book: "+record.Book.Title+", Overdue fees: "+record.CurrentLateFee);
-                                               accountSum = record.CurrentLateFee + accountSum;
-                                           }
-                                       } 
-                                       Console.WriteLine("Account Balance: "+accountSum);
-                    Console.WriteLine();
-                    break;
                 //added new exception so we don't mistake unwritten code for buggy code.
                 default:
                     throw new NotImplementedException();
@@ -95,6 +65,15 @@ namespace LibraryApp
         //TODO
         public static void CheckInMenu()
         {  
+            //Console.WriteLine("Please enter the title of your book")
+            //Getbook from user
+            //Code to check borrowdate and current date -
+            //Code to check for fees owed-Calculateoverdue method
+
+
+            //PAYFEES METHODif no fees owed user may search for books or exit program
+            //or else fees owed and amount displayed Please pay this amount before checking out a book
+            //Please proceed to payment screen to bring your account current
             throw new NotImplementedException("Check in menu has not been created.");
         }
         public static void CheckOutMenu(Book bookToAdd, User userToAdd)
@@ -106,7 +85,9 @@ namespace LibraryApp
             {
                 bookToAdd.Status = false;
                 userToAdd.RentedBook = bookToAdd;
-                /* all records.add(new Record(user.Book));*/
+
+
+                
             }
 
 
@@ -193,13 +174,6 @@ namespace LibraryApp
 
             return searchedBook;
         }
-        public static User SearchForUser()
-        {
-            User searchedUser;
-            searchedUser = Library.TheLibrary.AllUsers.Find(delegate (User user) { return user.Email.Contains(email); });
-
-            return searchedUser;
-        }
         public static User SearchForUser(string UserToSearch)
         {
             User searchedUser;
@@ -209,28 +183,10 @@ namespace LibraryApp
             return searchedUser;
         }
 
-        public static void WelcomeScreen() //new
+        public static void WelcomeScreen()
         {
 
             Console.WriteLine(Welcome_Header);
-            Console.Write("Please enter your email address: ");
-            email = Console.ReadLine();
-            Console.WriteLine();
-            User currentUser = SearchForUser(email);
-            if (currentUser == null)
-            {
-                Console.WriteLine("User does not exist.  Please register.");
-                Console.Write("First Name: ");
-                string fn = Console.ReadLine();
-                Console.Write("Last Name: ");
-                string ln = Console.ReadLine();
-                Library.TheLibrary.AllUsers.Add(new User(email, fn, ln, false, null, 0));
-                Console.WriteLine("Added: ");
-            }
-            else if (currentUser != null)
-            {
-                Console.WriteLine("User Profile Found.\n");
-            }
         }
 
         //To Do: Validation
