@@ -37,6 +37,8 @@ namespace LibraryApp
             Console.WriteLine("2. Search books");
             Console.WriteLine("3. View all users");
             Console.WriteLine("4. Account Overview");
+            Console.WriteLine("5. Check book in");
+            Console.WriteLine("6. Check book out");
             Console.WriteLine();
             //Console.Write();
             GetInput(out menuChoice, "Enter a number selection: ");
@@ -83,6 +85,21 @@ namespace LibraryApp
                     }
                     Console.WriteLine("Account Balance: " + accountSum);
                     Console.WriteLine();
+                    break;
+                case 5:
+                    string input;
+                    Book searchedBook;
+                    UserInterface.GetInput(out input, "Search titles for: ");
+                    searchedBook = Library.TheLibrary.AllBooks.Find(delegate (Book bk) { return bk.Title.Contains(input); });
+                    searchedBook.CheckedOutTo = "";
+                    searchedBook.Status = false;
+                    Record searchedRecord;
+                    searchedRecord =
+                        Library.TheLibrary.AllRecords.FindLast(
+                            delegate(Record r) { return (r.Book.Title.Contains(input)); });
+                    searchedRecord.CheckInDate = DateTime.Today;
+                    searchedRecord.ActiveStatus = false;
+                    Console.WriteLine(searchedRecord);
                     break;
                 //added new exception so we don't mistake unwritten code for buggy code.
                 default:

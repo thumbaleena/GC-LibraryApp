@@ -11,6 +11,8 @@ namespace LibraryApp
         #region Variables
         private DateTime dueDate;
         private DateTime checkOutDate;
+        private DateTime? checkInDate;
+        private bool activeStatus;
         private User currentUser;
         private Book currentBook;
         private int daysOverdue;//Representing the amount of days overdue at the time the record was created.
@@ -21,14 +23,16 @@ namespace LibraryApp
 
         //Record for creating a record object that already exists
         #region OldRecord
-        public Record(User currentUser, Book currentBook, DateTime dateTime1, DateTime dateTime2, int daysOverdue, float currentLateFee)
+        public Record(User currentUser, Book currentBook, DateTime dateTime1, DateTime dateTime2, DateTime dateTime3, int daysOverdue, float currentLateFee, bool activeStatus)
         {
             this.currentUser = currentUser;
             this.currentBook = currentBook;
             checkOutDate = dateTime1;
             dueDate = dateTime2;
+            checkInDate = dateTime3;
             this.daysOverdue = daysOverdue;
             this.currentLateFee = currentLateFee;
+            this.activeStatus = activeStatus;
         }
         #endregion
 
@@ -41,18 +45,20 @@ namespace LibraryApp
             dueDate = SetDueDate(); //14 days from today
             checkOutDate = DateTime.Today;
             daysOverdue = 0;
+            checkInDate = default(DateTime);
             currentLateFee = 0;
         }
         #endregion
 
         //Used for creating a record when checking IN a book.
         #region CheckInRecord
-        public Record(User currentUser, Book currentBook, DateTime dateTime1, DateTime dateTime2)
+        public Record(User currentUser, Book currentBook, DateTime dateTime1, DateTime dateTime2, DateTime dateTime3)
         {
             this.currentUser = currentUser;
             this.currentBook = currentBook;
             checkOutDate = dateTime1;
             dueDate = dateTime2;
+            checkInDate = dateTime3;
             daysOverdue = CalculateDaysOverdue();
             currentLateFee = CalculateOverdueFees();
        }
@@ -98,6 +104,11 @@ namespace LibraryApp
             }
         }
 
+        public DateTime? CheckInDate
+        {
+            get { return checkInDate; } 
+            set { checkInDate = value; }
+        }
         public int DaysOverdue
         {
             get { return daysOverdue; }
@@ -115,6 +126,12 @@ namespace LibraryApp
                 currentLateFee = value;
             }
 
+        }
+
+        public bool ActiveStatus
+        {
+            get { return activeStatus; }
+            set { activeStatus = value; }
         }
         #endregion
 
@@ -141,7 +158,7 @@ namespace LibraryApp
 
         public override string ToString()
         {
-            return Book + ", Checked out on: " + CheckOutDate;
+            return Book + ", Checked out on: " + CheckOutDate +", Check-in date: "+CheckInDate+", Checked-out status: "+activeStatus;
         }
     }
 }

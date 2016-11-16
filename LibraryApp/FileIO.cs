@@ -55,7 +55,7 @@ namespace LibraryApp
                 var rc = record.Split(',');
                 Book searchedBook;
                 searchedBook = Library.TheLibrary.AllBooks.Find(delegate (Book bk) { return bk.Title.Contains(rc[1]); });
-                Library.TheLibrary.AllRecords.Add(new Record(UserInterface.SearchForUser(rc[0]), searchedBook, Convert.ToDateTime(rc[2]), Convert.ToDateTime(rc[3]), int.Parse(rc[4]), float.Parse(rc[5])));
+                Library.TheLibrary.AllRecords.Add(new Record(UserInterface.SearchForUser(rc[0]), searchedBook, Convert.ToDateTime(rc[2]), Convert.ToDateTime(rc[3]), Convert.ToDateTime(rc[4]), int.Parse(rc[5]), float.Parse(rc[6]),bool.Parse(rc[7])));
             }
         }
 
