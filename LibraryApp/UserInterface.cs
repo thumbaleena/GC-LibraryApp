@@ -19,12 +19,7 @@ namespace LibraryApp
         }
 
 
-        //Todo: add options for other menus:
-        //Check In Book
-        //Check Out Book
-        //Add Book to Library
-        //Super user Remove Book from Library
-        //Later: Pay Fee
+      
         public static void MainMenu()
         {
             Console.WriteLine("Welcome to the Library.  What would you like to do?");
@@ -65,15 +60,7 @@ namespace LibraryApp
         //TODO
         public static void CheckInMenu()
         {  
-            //Console.WriteLine("Please enter the title of your book")
-            //Getbook from user
-            //Code to check borrowdate and current date -
-            //Code to check for fees owed-Calculateoverdue method
-
-
-            //PAYFEES METHODif no fees owed user may search for books or exit program
-            //or else fees owed and amount displayed Please pay this amount before checking out a book
-            //Please proceed to payment screen to bring your account current
+           
             throw new NotImplementedException("Check in menu has not been created.");
         }
         public static void CheckOutMenu(Book bookToAdd, User userToAdd)

@@ -176,7 +176,7 @@ namespace LibraryApp
         }
         public override string ToString()
         {
-            return Category + ", " + Title + ", " + AuthorFirst + ", " + AuthorLast + ", " + Status + ", " +
+            return Category + ", " + Title + ", " + AuthorFirst + " " + AuthorLast + ", " + Status + ", " +
                    DueDate + ", " + DaysOverdue + ", "+ BookValue + ", " + CurrentLateFee;
         }
 
