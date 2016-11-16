@@ -1,10 +1,10 @@
-﻿Nonfiction,Boss Moves,Jeseekia,Vaughn,true,11/11/2016,0,0.0,0.0,Tomjk@acdmail.com
+﻿Nonfiction,Boss Moves,Jeseekia,Vaughn,false,11/11/2016,0,0.0,0.0,
 Nonfiction,My Life,Jesus,Christ,true,11/25/2016,0,0.0,0.0,Tomjk@acdmail.com
 Fiction,Ulysses,James,Joyce,false,11/11/2016,0,0.0,0.0,
 Fiction,American Psycho,Brett,Easton-Ellis,false,11/11/2016,0,0.0,0.0,
 Fiction,Vineland,Thomas,Pynchon,false,11/11/2016,0,0.0,0.0,
 Fiction,Life: A User's Manual,Georges,Perec,false,11/11/2016,0,0.0,0.0,
-Fiction,A Long Project,Will,Spencer,false,11/11/2016,0,0.0,0.0,
+Fiction,A Long Project,Will,Spencer,true,11/11/2016,0,0.0,0.0,Tomjk@acdmail.com
 Fiction,Tedious,Jay,Kelley,false,11/11/2016,0,0.0,0.0,
 Fiction,Fifty Shades of Jay,Jay,Watt,true,11/11/2016,0,0.0,0.0,
 Fiction,Ride Or Die,Dee,Emex,true,11/11/2016,0,0.0,0.0,

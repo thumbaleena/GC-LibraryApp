@@ -59,26 +59,27 @@ namespace LibraryApp
                         break;
                 case 4:
                     Console.WriteLine("Books Checked Out To You:");
-                                       foreach (Record record in Library.TheLibrary.AllRecords)
+                    Console.WriteLine("Book:".PadRight(20) + "Due Date:");
+                    foreach (Record record in Library.TheLibrary.AllRecords)
                                        {
                                            if (record.Book.CheckedOutTo.Contains(email))
                                            {
-                                               string bookTitle = record.Book.Title;
-                                               Console.WriteLine(bookTitle);
-                                           }
-                                           else
-                                           {
-                                              Console.WriteLine("You do not have any books checked out at this time.");
+                            Console.WriteLine(record.Book.Title.PadRight(20)+record.DueDate);
                                            }
                                        }
+                                       Console.WriteLine();
                                        Console.WriteLine("Account Balance: ");
+                                        float accountSum = 0;
                                        foreach (Record record in Library.TheLibrary.AllRecords)
                                        {
-                                           if (record.User.Email.Contains(email) && record.CurrentLateFee >= 0)
+                                           if (record.User.Email == email && record.CurrentLateFee >= .01)
                                            {
-                                               Console.WriteLine(record);
+                                               Console.WriteLine("Book: "+record.Book.Title+", Overdue fees: "+record.CurrentLateFee);
+                                               accountSum = record.CurrentLateFee + accountSum;
                                            }
                                        } 
+                                       Console.WriteLine("Account Balance: "+accountSum);
+                    Console.WriteLine();
                     break;
                 //added new exception so we don't mistake unwritten code for buggy code.
                 default:

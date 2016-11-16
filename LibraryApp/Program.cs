@@ -27,8 +27,8 @@ namespace LibraryApp
             {
                 var rc = record.Split(',');
 
-                Library.TheLibrary.AllBooks.Add(new Book(rc[0], rc[1], rc[2], rc[3], bool.Parse(rc[4]), DateTime.Parse(rc[5]),
-                    int.Parse(rc[6]), float.Parse(rc[7]), float.Parse(rc[8]),rc[9])); //
+                Library.TheLibrary.AllBooks.Add(new Book(rc[0], rc[1], rc[2], rc[3], bool.Parse(rc[4]),/* DateTime.Parse(rc[5]),
+                    int.Parse(rc[6]), float.Parse(rc[7]), float.Parse(rc[8]),*/rc[9])); //
 
             }
 

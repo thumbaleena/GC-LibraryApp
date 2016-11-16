@@ -103,7 +103,7 @@ namespace LibraryApp
 
         public override string ToString()
         {
-            return Book+", "+CheckOutDate;
+            return Book+", Checked out on: "+CheckOutDate;
         }
     }
 }
